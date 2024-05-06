@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj5elpk4ma3gc"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_8y5om"]
+[ext_resource type="Texture2D" uid="uid://lei8aj71ss48" path="res://Textures/Enemy/örkki.png" id="1_xtnpo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
+
+[node name="enemy_örkki" type="CharacterBody2D"]
+script = ExtResource("1_8y5om")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xtnpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qsdof")
