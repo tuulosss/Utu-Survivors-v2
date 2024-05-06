@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oswfcgwmt2mt"
-path="res://.godot/imported/Puu1.png-4ccda716110302775356839e1620f41d.ctex"
+uid="uid://driu0la12ptbf"
+path="res://.godot/imported/tolppa.png-553061a76d95489c9738557dbdc13654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/Puu1.png"
-dest_files=["res://.godot/imported/Puu1.png-4ccda716110302775356839e1620f41d.ctex"]
+source_file="res://Textures/worldtextures/tolppa.png"
+dest_files=["res://.godot/imported/tolppa.png-553061a76d95489c9738557dbdc13654.ctex"]
 
 [params]
 

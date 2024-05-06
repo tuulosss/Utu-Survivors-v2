@@ -1,10 +1,7 @@
 extends CharacterBody2D
 
-
-
 @export var movement_speed =100.0
 var hp=80
-
 
 #Hyökkäykset
 var HTTP =preload("res://Textures/Player/Attack/jääpuikko.tscn")
@@ -39,7 +36,6 @@ func movement():
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
-
 #HTTP Hyökkäys
 func attack():
 	if HTTP_level > 0:
@@ -65,12 +61,10 @@ func _on_hötöattack_timer_timeout():
 			HötöAttackTimer.stop()
 	
 func get_random_target():
-	
 	if enemy_close.size() > 0:
 		return enemy_close.pick_random().global_position
 	else:
 		return Vector2.UP
-
 
 func _on_enemy_detection_area_body_entered(body):
 	if not enemy_close.has(body):
