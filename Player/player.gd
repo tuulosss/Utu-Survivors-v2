@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 @export var movement_speed =100
 var hp=80
 

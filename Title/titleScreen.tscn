@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://txjobql2mg1s"]
+
+[ext_resource type="Texture2D" uid="uid://bsuf68r55vegd" path="res://Textures/worldtextures/utusurvivor.png" id="1_j345u"]
+[ext_resource type="Script" path="res://Title/Titlescreen.gd" id="1_tjo7a"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.563, 322.125)
+scale = Vector2(0.690387, 0.563261)
+texture = ExtResource("1_j345u")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 429.0
+offset_right = 698.0
+offset_bottom = 496.0
+text = "START"
+script = ExtResource("1_tjo7a")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 507.0
+offset_right = 697.0
+offset_bottom = 574.0
+text = "QUIT"
+script = ExtResource("1_tjo7a")
+
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="Quit" to="Start" method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

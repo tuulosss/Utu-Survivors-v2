@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://hogf65gloxjt"]
+[gd_scene load_steps=27 format=3 uid="uid://hogf65gloxjt"]
 
 [ext_resource type="Texture2D" uid="uid://md126kkqxyrq" path="res://Textures/worldtextures/Grass.png" id="1_et77d"]
 [ext_resource type="PackedScene" uid="uid://cjv1q7mlg0hj1" path="res://Player/player.tscn" id="2_78rv2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b3j3e588v6x1s" path="res://Textures/worldtextures/kaktus.png" id="7_qq18n"]
 [ext_resource type="Texture2D" uid="uid://bx7g3vift1xxp" path="res://Textures/worldtextures/PuuIso.png" id="8_f3mhi"]
 [ext_resource type="Texture2D" uid="uid://cp1auym5d1xy4" path="res://Textures/worldtextures/corner.png" id="11_cmocb"]
+[ext_resource type="PackedScene" uid="uid://cjtltekvwxbdv" path="res://World/menuScreen.tscn" id="14_ih6xd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysof6"]
 texture = ExtResource("1_et77d")
@@ -210,3 +211,10 @@ scale = Vector2(63.6485, 42.8311)
 
 [node name="enemy_örkki" parent="." instance=ExtResource("3_jba38")]
 position = Vector2(112, -13)
+
+[node name="Menu" parent="." instance=ExtResource("14_ih6xd")]
+offset_left = -131.0
+offset_top = -100.0
+offset_right = -131.0
+offset_bottom = -100.0
+scale = Vector2(4.01475, 3.08518)
