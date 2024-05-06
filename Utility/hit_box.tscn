@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drxv4q6gu47su"]
+
+[ext_resource type="Script" path="res://Utility/hit_box.gd" id="1_stqxl"]
+
+[node name="HitBox" type="Area2D"]
+script = ExtResource("1_stqxl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

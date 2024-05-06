@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://hogf65gloxjt"]
+
+[ext_resource type="Texture2D" uid="uid://llb3mrqxagvs" path="res://Textures/worldtextures/ruoho.png" id="1_xebft"]
+[ext_resource type="PackedScene" uid="uid://cjv1q7mlg0hj1" path="res://Player/player.tscn" id="2_78rv2"]
+[ext_resource type="PackedScene" uid="uid://dj5elpk4ma3gc" path="res://Enemy/enemy.tscn" id="3_jba38"]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(17, -144)
+scale = Vector2(0.946372, -0.860055)
+texture = ExtResource("1_xebft")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="Player" parent="." instance=ExtResource("2_78rv2")]
+scale = Vector2(63.6485, 42.8311)
+
+[node name="enemy_örkki" parent="." instance=ExtResource("3_jba38")]
+position = Vector2(112, -13)
