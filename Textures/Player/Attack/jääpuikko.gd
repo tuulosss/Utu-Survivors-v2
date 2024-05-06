@@ -1,6 +1,6 @@
 extends Area2D
 
-
+#hyökkäyksen statit
 var level = 1 
 var hp = 1
 var speed = 100
@@ -12,7 +12,7 @@ var target =Vector2.ZERO
 var angle = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	angle = global_position.direction_to(target)
 	rotation = angle.angle() + deg_to_rad(135)
@@ -27,12 +27,10 @@ func _ready():
 func _physics_process(delta):
 	position += angle*speed*delta
 	
-	
 func enemy_hit(charge = 1):
 	hp -= charge
-	if hp <0:
+	if hp < 0:
 		queue_free()
 
-func _on_timer_toimeout():
+func _on_timer_timeout():
 	queue_free()
-	
