@@ -13,17 +13,21 @@ visibility_layer = 4
 script = ExtResource("1_2d1r7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.401563, 0.431719)
+position = Vector2(-1.04884, 2.29298)
+rotation = 0.538973
+scale = Vector2(0.384782, 0.385859)
 texture = ExtResource("2_vls8p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -2)
-rotation = -0.785398
+position = Vector2(2, 2)
+rotation = -0.00156903
 shape = SubResource("RectangleShape2D_ettx6")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 100.0
 one_shot = true
 autostart = true
 
 [node name="Snd_play" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

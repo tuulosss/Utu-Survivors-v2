@@ -15,7 +15,8 @@ var angle = Vector2.ZERO
 
 func _ready():
 	angle = global_position.direction_to(target)
-	rotation = angle.angle() + deg_to_rad(135)
+	print("kulma")
+	#rotation = angle.angle() + deg_to_rad(0)
 	match level:
 		1: 
 			hp = 1
@@ -31,6 +32,7 @@ func enemy_hit(charge = 1):
 	hp -= charge
 	if hp < 0:
 		queue_free()
+
 
 func _on_timer_timeout():
 	queue_free()

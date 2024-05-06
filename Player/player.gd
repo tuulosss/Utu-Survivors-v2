@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
-@export var movement_speed =100.0
+@export var movement_speed =100
 var hp=80
 
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 
 #HyökkäysNodet
-@onready var HötöTimer = get_node("%Attack/HötöTimer")
-@onready var HötöAttackTimer = get_node("%Attack/HötöTimer/HötöAttackTimer")
+@onready var HötöTimer = get_node("%HötöTimer")
+@onready var HötöAttackTimer = get_node("%HötöAttackTimer")
 
 #HTTP
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
-var HTTP_attackspeed = 1.5
+var HTTP_attackspeed = 2
 var HTTP_level = 1
 
 #Vihu
@@ -21,7 +21,6 @@ var enemy_close = []
 
 func _ready():
 	attack()
-
 
 func _physics_process(delta):
 	movement()
@@ -40,6 +39,7 @@ func movement():
 
 #HTTP Hyökkäys
 func attack():
+	print("hyökkää")
 	if HTTP_level > 0:
 		HötöTimer.wait_time = HTTP_attackspeed
 		if HötöTimer.is_stopped():
@@ -47,14 +47,19 @@ func attack():
 
 #Attack Timer
 func _on_hötötimer_timeout():
+	print("timer")
 	HTTP_ammo += HTTP_baseammo
 	HötöAttackTimer.start()
 func _on_hötöattack_timer_timeout():
+	print("aika")
 	if HTTP_ammo > 0:
 		var HTTP_attack = HTTP.instantiate()
 		HTTP_attack.position = position
-		HTTP_attack.target = get_random_target()
+		var target = get_random_target()
+		HTTP_attack.target = target
+		HTTP_attack.look_at(target)
 		HTTP_attack.level = HTTP_level
+		print("ammu")
 		add_child(HTTP_attack)
 		HTTP_ammo -= 1
 		if HTTP_ammo > 0:
@@ -63,15 +68,18 @@ func _on_hötöattack_timer_timeout():
 			HötöAttackTimer.stop()
 	
 func get_random_target():
+	print("getrandom")
 	if enemy_close.size() > 0:
+		print("lähellä")
 		return enemy_close.pick_random().global_position
 	else:
 		return Vector2.UP
 
 func _on_enemy_detection_area_body_entered(body):
+	print("etsivihu")
 	if not enemy_close.has(body):
 		enemy_close.append(body)
-
+		
 func _on_enemy_detection_area_body_exited(body):
 	if  enemy_close.has(body):
 		enemy_close.erase(body)
