@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjv1q7mlg0hj1"]
+[gd_scene load_steps=5 format=3 uid="uid://cjv1q7mlg0hj1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqhub"]
 radius = 0.118102
 height = 0.707576
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74e6h"]
+radius = 6.09076
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(118.542, 90.4496)
@@ -22,3 +25,26 @@ scale = Vector2(1036.03, 326.801)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dqhub")
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="HötöTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="HötöAttackTimer" type="Timer" parent="Attack/HötöTimer"]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+monitorable = false
+
+[node name="EnemyDetectionCollisionShape" type="CollisionShape2D" parent="EnemyDetectionArea"]
+shape = SubResource("CircleShape2D_74e6h")
+
+[connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
+[connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
