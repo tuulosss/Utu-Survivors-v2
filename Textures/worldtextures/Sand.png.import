@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqagsdf3svoas"
-path="res://.godot/imported/hiekkaaa.png-f71c186b2e96db8a516830c32a0d7873.ctex"
+uid="uid://djqfmyhqr0s17"
+path="res://.godot/imported/Sand.png-1b677e8e79cbb5f5533d7448035ed2ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/hiekkaaa.png"
-dest_files=["res://.godot/imported/hiekkaaa.png-f71c186b2e96db8a516830c32a0d7873.ctex"]
+source_file="res://Textures/worldtextures/Sand.png"
+dest_files=["res://.godot/imported/Sand.png-1b677e8e79cbb5f5533d7448035ed2ad.ctex"]
 
 [params]
 

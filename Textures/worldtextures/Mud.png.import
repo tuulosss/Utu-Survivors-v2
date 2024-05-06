@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yosw1ovei1rc"
-path="res://.godot/imported/stonewall.png-221932134a1b7439aef113596555476f.ctex"
+uid="uid://c6rhkiwa8sjsq"
+path="res://.godot/imported/Mud.png-1385d91ea6bc632cf02fc84c14be6051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/stonewall.png"
-dest_files=["res://.godot/imported/stonewall.png-221932134a1b7439aef113596555476f.ctex"]
+source_file="res://Textures/worldtextures/Mud.png"
+dest_files=["res://.godot/imported/Mud.png-1385d91ea6bc632cf02fc84c14be6051.ctex"]
 
 [params]
 

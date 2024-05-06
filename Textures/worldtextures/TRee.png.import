@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ncvyep35hym"
-path="res://.godot/imported/Puu2.png-e45151bdf81aad87b11a63be32717bda.ctex"
+uid="uid://du7hkry5xijsy"
+path="res://.godot/imported/TRee.png-f84e4d93520cd90f766d46f37156fb47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/Puu2.png"
-dest_files=["res://.godot/imported/Puu2.png-e45151bdf81aad87b11a63be32717bda.ctex"]
+source_file="res://Textures/worldtextures/TRee.png"
+dest_files=["res://.godot/imported/TRee.png-f84e4d93520cd90f766d46f37156fb47.ctex"]
 
 [params]
 

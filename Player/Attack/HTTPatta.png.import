@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dywsphyb45tyh"
-path="res://.godot/imported/dirt_full_new.png-b3fd4ea299aa16cdcf73ea4f2c468745.ctex"
+uid="uid://bc13vg27lwhoo"
+path="res://.godot/imported/HTTPatta.png-3113981428a6badd6af588c66b8e4544.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/dirt_full_new.png"
-dest_files=["res://.godot/imported/dirt_full_new.png-b3fd4ea299aa16cdcf73ea4f2c468745.ctex"]
+source_file="res://Player/Attack/HTTPatta.png"
+dest_files=["res://.godot/imported/HTTPatta.png-3113981428a6badd6af588c66b8e4544.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://driu0la12ptbf"
-path="res://.godot/imported/tolppa.png-553061a76d95489c9738557dbdc13654.ctex"
+uid="uid://md126kkqxyrq"
+path="res://.godot/imported/Grass.png-1d4e682f6a664662b699afb736cbc5ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/worldtextures/tolppa.png"
-dest_files=["res://.godot/imported/tolppa.png-553061a76d95489c9738557dbdc13654.ctex"]
+source_file="res://Textures/worldtextures/Grass.png"
+dest_files=["res://.godot/imported/Grass.png-1d4e682f6a664662b699afb736cbc5ca.ctex"]
 
 [params]
 
