@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj5elpk4ma3gc"]
+[gd_scene load_steps=6 format=3 uid="uid://dj5elpk4ma3gc"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_8y5om"]
 [ext_resource type="Texture2D" uid="uid://lei8aj71ss48" path="res://Textures/Enemy/örkki.png" id="1_xtnpo"]
+[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Textures/Utility/hit_box.tscn" id="4_dkv1t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrwiy"]
+size = Vector2(11.2279, 41)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
 
@@ -10,8 +14,17 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_8y5om")
 
+[node name="HitBox" parent="." instance=ExtResource("4_dkv1t")]
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-2.38419e-07, -1.5)
+scale = Vector2(1.42502, 1)
+shape = SubResource("RectangleShape2D_nrwiy")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xtnpo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qsdof")
+
+[editable path="HitBox"]

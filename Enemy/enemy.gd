@@ -10,3 +10,9 @@ func  _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction*movement_speed
 	move_and_slide()
+
+
+func _on_hurt_box_hurt(damage):
+	hp-=damage
+	if hp <= 0:
+		queue_free()

@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var movement_speed =100.0
 var hp=80
 
+<<<<<<< HEAD
 #Hyökkäykset
 var HTTP =preload("res://Textures/Player/Attack/jääpuikko.tscn")
 
@@ -22,6 +23,8 @@ var enemy_close = []
 func _ready():
 	attack()
 
+=======
+>>>>>>> 60ef6ac91d3535f359d3d1d14cb84726183dc48e
 func _physics_process(delta):
 	movement()
 
@@ -36,6 +39,7 @@ func movement():
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
+<<<<<<< HEAD
 #HTTP Hyökkäys
 func attack():
 	if HTTP_level > 0:
@@ -76,3 +80,9 @@ func _on_enemy_detection_area_body_exited(body):
 
 
 
+=======
+
+func _on_hurt_box_hurt(damage):
+	hp-=damage
+	print(hp)
+>>>>>>> 60ef6ac91d3535f359d3d1d14cb84726183dc48e
