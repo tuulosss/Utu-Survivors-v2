@@ -11,12 +11,10 @@ var attack_size = 1.0
 var target =Vector2.ZERO
 var angle = Vector2.ZERO
 
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var player = get_tree().get_first_node_in_group("player") 
 
 func _ready():
 	angle = global_position.direction_to(target)
-	print("kulma")
-	#rotation = angle.angle() + deg_to_rad(0)
 	match level:
 		1: 
 			hp = 1
