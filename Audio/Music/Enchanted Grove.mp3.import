@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Enchanted Grove.mp3-ca41fee2d50202528ab56f44f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
