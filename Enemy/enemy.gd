@@ -38,13 +38,13 @@ func  _physics_process(_delta):
 func death():
 		emit_signal("remove_from_array",self)
 		var enemy_death = death_anim.instantiate()
-		#enemy_death.scale = $Sprite2D.scale
+		enemy_death.scale = $Sprite2D.scale
 		enemy_death.global_position = global_position
+		get_parent().call_deferred("add_child",enemy_death)
 		var new_gem = exp_gem.instantiate()
 		new_gem.global_position = global_position
 		new_gem.experience = experience 
 		loot_base.call_deferred("add_child", new_gem)
-		get_parent().call_deferred("add_child",enemy_death)
 		queue_free()
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
