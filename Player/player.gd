@@ -47,7 +47,7 @@ var HTTP_attackspeed = 2
 var HTTP_level = 1
 
 #Matrix
-var Matrix_ammo = 9999
+var Matrix_ammo = 99999
 var Matrix_baseammo = 1
 var Matrix_attackspeed = 3
 var Matrix_level = 0
@@ -141,7 +141,13 @@ func spawn_Näppis():
 		Näppis_spawn.global_position = global_position
 		NäppisBase.add_child(Näppis_spawn)
 		calc_spawns -= 1
-		
+	#Upgrade Javelin
+	var get_näppikset = NäppisBase.get_children()
+	for i in get_näppikset:
+		if i.has_method("update_Näppis"):
+			i.update_Näppis()
+			
+	
 func get_random_target():
 	if enemy_close.size() > 0:
 		return enemy_close.pick_random().global_position
@@ -290,11 +296,12 @@ func get_random_item():
 		elif UpgradeDb.UPGRADES[i]["type"] == "item": #Don't pick food
 			pass
 		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #check for prerequisites
+			var to_add = true
 			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:
 				if not n in collected_upgrades:
-					pass
-				else:
-					dblist.append(i)
+					to_add = false
+			if to_add:
+				dblist.append(i)
 		else:
 			dblist.append(i)
 	if dblist.size() > 0:

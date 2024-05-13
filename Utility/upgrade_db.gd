@@ -22,16 +22,16 @@ const UPGRADES = {
 	},
 	"HTTPattack3": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
-		"displayname": "Ice Spear",
-		"details": "Ice Spears now pass through another enemy and do + 3 damage",
+		"displayname": "HTTP attack",
+		"details": "HTTP attacks now pass through another enemy and do + 3 damage",
 		"level": "Level: 3",
 		"prerequisite": ["HTTPattack2"],
 		"type": "weapon"
 	},
 	"HTTPattack4": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
-		"displayname": "Ice Spear",
-		"details": "An additional 2 Ice Spears are thrown",
+		"displayname": "HTTP attack",
+		"details": "An additional 2 HTTP attack are thrown",
 		"level": "Level: 4",
 		"prerequisite": ["HTTPattack3"],
 		"type": "weapon"

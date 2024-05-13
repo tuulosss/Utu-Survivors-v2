@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://hogf65gloxjt"]
+[gd_scene load_steps=27 format=3 uid="uid://hogf65gloxjt"]
 
 [ext_resource type="Texture2D" uid="uid://md126kkqxyrq" path="res://Textures/worldtextures/Grass.png" id="1_et77d"]
 [ext_resource type="PackedScene" uid="uid://cjv1q7mlg0hj1" path="res://Player/player.tscn" id="2_78rv2"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cp1auym5d1xy4" path="res://Textures/worldtextures/corner.png" id="11_cmocb"]
 [ext_resource type="PackedScene" uid="uid://bcwcxyiyfjltj" path="res://Objects/experience_gem.tscn" id="14_8xlu2"]
 [ext_resource type="PackedScene" uid="uid://bytq12r516xlj" path="res://Utility/enemy_spawner.tscn" id="14_q55vo"]
-[ext_resource type="AudioStream" uid="uid://cadwdacnc7d8d" path="res://Audio/Music/ingame.mp3" id="15_74axi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysof6"]
 texture = ExtResource("1_et77d")
