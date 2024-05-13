@@ -37,7 +37,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS1": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "A magical NÄPPIS will follow you attacking enemies in a straight line",
 		"level": "Level: 1",
@@ -45,7 +45,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS2": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS will now attack an additional enemy per attack",
 		"level": "Level: 2",
@@ -53,7 +53,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS3": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS will attack another additional enemy per attack",
 		"level": "Level: 3",
@@ -61,7 +61,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS4": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS now does + 5 damage per attack and causes 20% additional knockback",
 		"level": "Level: 4",
