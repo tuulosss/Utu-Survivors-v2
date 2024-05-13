@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu8wbalbsj72m"]
+[gd_scene load_steps=3 format=3 uid="uid://cu8wbalbsj72m"]
 
-[ext_resource type="Script" path="res://Utility/hit_box.gd" id="1_6ux2b"]
+[ext_resource type="Script" path="res://Utility/HitBox.gd" id="1_m3ta1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3tgr"]
+size = Vector2(30.5, 30)
 
 [node name="HitBox" type="Area2D" groups=["attack"]]
-light_mask = 0
-visibility_layer = 0
-script = ExtResource("1_6ux2b")
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_m3ta1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f3tgr")
 
 [node name="DisableHitBoxTimer" type="Timer" parent="."]
 

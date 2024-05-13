@@ -6,6 +6,7 @@
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 14.0
@@ -24,6 +25,7 @@ texture = ExtResource("1_dbmk8")
 [node name="Over" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_vabbi")
 volume_db = -6.639
+autoplay = true
 
 [node name="Main Menu" type="Button" parent="."]
 layout_mode = 0

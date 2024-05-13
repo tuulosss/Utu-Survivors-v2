@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var GameMusic = $GameMusic
 
 @export var movement_speed =100
-var hp=80
+var hp=2
 
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")

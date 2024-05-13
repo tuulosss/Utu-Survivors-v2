@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://Player/Attack/jääpuikko.gd" id="1_2d1r7"]
 [ext_resource type="Texture2D" uid="uid://bc13vg27lwhoo" path="res://Player/Attack/HTTPatta.png" id="2_vls8p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ettx6"]
-size = Vector2(35, 21)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ap4w1"]
+height = 34.0
 
 [node name="hötömölö" type="Area2D" groups=["attack"]]
 top_level = true
 light_mask = 4
 visibility_layer = 4
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_2d1r7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -18,17 +20,16 @@ rotation = 0.538973
 scale = Vector2(0.384782, 0.385859)
 texture = ExtResource("2_vls8p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 2)
-rotation = -0.00156903
-shape = SubResource("RectangleShape2D_ettx6")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 100.0
 one_shot = true
 autostart = true
 
 [node name="Snd_play" type="AudioStreamPlayer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ap4w1")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
