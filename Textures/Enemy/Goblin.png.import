@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lei8aj71ss48"
-path="res://.godot/imported/örkki.png-9b0a67e2fdf1d17b53eb929bac136b54.ctex"
+uid="uid://30i3e5cntrc7"
+path="res://.godot/imported/Goblin.png-c0ae5cc522cdac4c4c8e15b55e500acb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Enemy/örkki.png"
-dest_files=["res://.godot/imported/örkki.png-9b0a67e2fdf1d17b53eb929bac136b54.ctex"]
+source_file="res://Textures/Enemy/Goblin.png"
+dest_files=["res://.godot/imported/Goblin.png-c0ae5cc522cdac4c4c8e15b55e500acb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmf2d0xfbknwd"
-path="res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"
+uid="uid://lei8aj71ss48"
+path="res://.godot/imported/örkki_heikko.png-33cb1555e1c744a569695e9964ff145d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/NÄPPIS.png"
-dest_files=["res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"]
+source_file="res://Textures/Enemy/örkki_heikko.png"
+dest_files=["res://.godot/imported/örkki_heikko.png-33cb1555e1c744a569695e9964ff145d.ctex"]
 
 [params]
 

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://34iyfca40fyf"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_7y4bu"]
+[ext_resource type="Texture2D" uid="uid://bbyykjcyqqimx" path="res://Textures/Enemy/megaörkki.png" id="2_ng2st"]
+[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="3_wruo8"]
+[ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="4_0k4dk"]
+[ext_resource type="AudioStream" uid="uid://c4exw1ele56gt" path="res://Audio/SoundEffect/enemy_hit2.ogg" id="5_p5ukl"]
+[ext_resource type="AudioStream" uid="uid://da8f5ldkfbr48" path="res://Audio/SoundEffect/enemy_death2.ogg" id="6_ngox7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
+radius = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gxrj"]
+radius = 20.0
+height = 90.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7ljs"]
+radius = 21.0
+height = 82.0
+
+[node name="enemy_örkki" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_7y4bu")
+movement_speed = 70.0
+hp = 400
+knockback_recovery = 100.0
+experience = 25
+damage = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -4)
+scale = Vector2(4.4208, 2.16652)
+texture = ExtResource("2_ng2st")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
+shape = SubResource("CapsuleShape2D_qsdof")
+
+[node name="HitBox" parent="." instance=ExtResource("3_wruo8")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(3, -7)
+shape = SubResource("CapsuleShape2D_7gxrj")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_0k4dk")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(2, -10)
+shape = SubResource("CapsuleShape2D_b7ljs")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p5ukl")
+volume_db = -20.0
+pitch_scale = 2.0
+
+[node name="snd_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ngox7")
+volume_db = -10.0
+pitch_scale = 1.35
+
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+
+[editable path="HitBox"]
+[editable path="HurtBox"]

@@ -14,7 +14,7 @@ var target_array =[]
 
 var angle = Vector2.ZERO
 var reset_pos = Vector2.ZERO
-var spr_näp_reg =preload("res://Textures/Items/Weapons/NÄPPIS.png")
+var spr_näp_reg =preload("res://Textures/Items/Weapons/näppis.png")
 
 
 signal remove_from_array(object)
@@ -95,21 +95,27 @@ func add_paths():
 		var new_path = player.get_random_target()
 		target_array.append(new_path)
 		counter += 1
-		enable_attack(true)
+	enable_attack(true)
 	target = target_array[0]
 	process_path()
 	
 func process_path():
 	angle = global_position.direction_to(target)
-	
+	changeDirectionTimer.start()
+	var tween = create_tween()
+	var new_rotation_degrees = angle.angle() * deg_to_rad(135)
+	tween.tween_property(self,"rotation",new_rotation_degrees,0.25).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 func _on_attack_timer_timeout():
 	add_paths()
 
 func enable_attack(atk = true):
 	if atk:
-		collision.call_deferred("set","disables",false)
+		collision.call_deferred("set","disabled",false)
 		sprite.texture = spr_näp_reg
-		
+	else:
+		collision.call_deferred("set","disabled",true)
+		sprite.texture = spr_näp_reg
 	
 func _on_change_direction_timeout():
 	if target_array.size() > 0:
