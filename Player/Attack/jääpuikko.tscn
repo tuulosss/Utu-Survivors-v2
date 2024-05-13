@@ -22,6 +22,7 @@ texture = ExtResource("2_vls8p")
 position = Vector2(2, 2)
 rotation = -0.00156903
 shape = SubResource("RectangleShape2D_ettx6")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 100.0

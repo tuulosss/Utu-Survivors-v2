@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_8y5om"]
 [ext_resource type="Texture2D" uid="uid://lei8aj71ss48" path="res://Textures/Enemy/örkki.png" id="1_xtnpo"]
-[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Textures/Utility/hit_box.tscn" id="4_dkv1t"]
+[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="2_45uji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrwiy"]
 size = Vector2(11.2279, 41)
@@ -14,7 +14,7 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_8y5om")
 
-[node name="HitBox" parent="." instance=ExtResource("4_dkv1t")]
+[node name="HitBox" parent="." instance=ExtResource("2_45uji")]
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(-2.38419e-07, -1.5)

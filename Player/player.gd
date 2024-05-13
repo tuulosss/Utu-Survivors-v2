@@ -1,4 +1,9 @@
 extends CharacterBody2D
+
+
+#musiikki
+@onready var GameMusic = $GameMusic
+
 @export var movement_speed =100
 var hp=80
 
@@ -12,13 +17,14 @@ var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 #HTTP
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
-var HTTP_attackspeed = 2
+var HTTP_attackspeed = 4
 var HTTP_level = 1
 
 #Vihu
 var enemy_close = []
 
 func _ready():
+	GameMusic.play()
 	attack()
 
 func _physics_process(delta):
@@ -38,6 +44,7 @@ func movement():
 
 #HTTP Hyökkäys
 func attack():
+	
 	if HTTP_level > 0:
 		HötöTimer.wait_time = HTTP_attackspeed
 		if HötöTimer.is_stopped():
@@ -80,3 +87,7 @@ func _on_enemy_detection_area_body_exited(body):
 func _on_hurt_box_hurt(damage):
 	hp-=damage
 	print(hp)
+	if hp <= 0:
+		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
+		
+		

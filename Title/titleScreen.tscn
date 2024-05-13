@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://txjobql2mg1s"]
+[gd_scene load_steps=4 format=3 uid="uid://txjobql2mg1s"]
 
 [ext_resource type="Texture2D" uid="uid://bsuf68r55vegd" path="res://Textures/worldtextures/utusurvivor.png" id="1_j345u"]
 [ext_resource type="Script" path="res://Title/Titlescreen.gd" id="1_tjo7a"]
+[ext_resource type="AudioStream" uid="uid://dinx5gyshibm2" path="res://Audio/Music/Enchanted Grove.mp3" id="3_c2ajv"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -33,6 +34,12 @@ offset_right = 697.0
 offset_bottom = 574.0
 text = "QUIT"
 script = ExtResource("1_tjo7a")
+
+[node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c2ajv")
+volume_db = -30.979
+pitch_scale = 0.8
+autoplay = true
 
 [connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
 [connection signal="pressed" from="Quit" to="Start" method="_on_quit_pressed"]

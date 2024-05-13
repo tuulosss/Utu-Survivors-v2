@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://coi7qisv54c8f"]
+
+[ext_resource type="Texture2D" uid="uid://11ehlia28l65" path="res://Textures/worldtextures/gameover.png" id="1_dbmk8"]
+[ext_resource type="Script" path="res://Title/GameOver.gd" id="1_m4ivr"]
+[ext_resource type="AudioStream" uid="uid://claiix4m8mb0j" path="res://Audio/Music/KnuvoOST.mp3" id="2_vabbi"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 12.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m4ivr")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(558, 312)
+scale = Vector2(3.22905, 2.51563)
+texture = ExtResource("1_dbmk8")
+
+[node name="Over" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_vabbi")
+volume_db = -6.639
+
+[node name="Main Menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 449.0
+offset_right = 637.0
+offset_bottom = 501.0
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 374.0
+offset_right = 635.0
+offset_bottom = 430.0
+
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
