@@ -31,9 +31,10 @@ func  _physics_process(_delta):
 	elif direction.x < -0.1:
 		sprite.flip_h = false;
 	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
-	
+
 	velocity = direction*movement_speed
-	velocity += knockback		
+	velocity += knockback
+	
 func death():
 		emit_signal("remove_from_array",self)
 		var enemy_death = death_anim.instantiate()

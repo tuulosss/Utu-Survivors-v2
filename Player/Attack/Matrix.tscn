@@ -96,9 +96,10 @@ shape = SubResource("CircleShape2D_v0nc5")
 wait_time = 20.0
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ehhxc")
-volume_db = -16.9
+volume_db = -27.733
 pitch_scale = 0.79
+stream_paused = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

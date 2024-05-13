@@ -19,6 +19,7 @@ signal remove_from_array(object)
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
+	$snd_attack.play()
 	match level:
 		1: 
 			hp = 9999
@@ -69,6 +70,7 @@ func _ready():
 	speed = speed/5.0
 	initial_tween.tween_property(self,"speed",final_speed, 6).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	initial_tween.play()
+	
 	#matrix liikkumisanimaatio
 	var tween = create_tween()
 	var set_angle = randi_range(0,1)

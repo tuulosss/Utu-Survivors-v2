@@ -17,6 +17,7 @@ signal remove_from_array(object)
 #@onready var player = get_tree().get_first_node_in_group("player") 
 
 func _ready():
+	$Snd_play.play()
 	angle = global_position.direction_to(get_global_mouse_position())
 	#angle = global_position.direction_to(target)
 	match level:
@@ -45,12 +46,17 @@ func _ready():
 			knockback_amount = 100
 			attack_size = 1.0 * (1 + player.spell_size)
 	
+	scale =Vector2(1.0,1.0)* attack_size
 	#var tween = create_tween()
 	#tween.tween_property(self,"scale",Vector2(1,1)*attack_size,1).set_trans(Tween.TRANS_QUINT).SET
 	#tween.play()
 	#
 func _physics_process(delta):
 	position += angle*speed*delta
+	var tween = create_tween()
+	var new_rotation_degrees = deg_to_rad(1000)
+	tween.tween_property(self,"rotation",new_rotation_degrees,10).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.play()
 
 func enemy_hit(charge = 1):
 	hp -= charge

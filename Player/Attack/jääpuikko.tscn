@@ -33,6 +33,6 @@ autostart = true
 
 [node name="Snd_play" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_r6ydd")
-volume_db = -17.767
+volume_db = -27.3
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

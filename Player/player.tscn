@@ -75,7 +75,7 @@ shape = SubResource("CircleShape2D_cy7ba")
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_e005n")
-volume_db = -36.953
+volume_db = -26.553
 
 [node name="HurtBox" parent="." instance=ExtResource("3_kpwyk")]
 collision_layer = 2
@@ -161,7 +161,7 @@ offset_bottom = 150.0
 [node name="snd_levelup" type="AudioStreamPlayer" parent="GUILayer/GUI/LevelUp"]
 unique_name_in_owner = true
 stream = ExtResource("8_fjcw2")
-volume_db = -30.0
+volume_db = -39.533
 
 [connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
 [connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]

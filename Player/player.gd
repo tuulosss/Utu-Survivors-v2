@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 #musiikki
 @onready var GameMusic = $GameMusic
-
 #pelaajan stats ja movement
 @export var movement_speed = 100
 var maxhp=100
@@ -60,6 +59,7 @@ var Näppis_level = 0
 var enemy_close = []
 
 func _ready():
+	GameMusic.play()
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 
@@ -99,11 +99,9 @@ func attack():
 func _on_hötötimer_timeout():
 	HTTP_ammo += HTTP_baseammo + additional_attacks
 	HötöAttackTimer.start()
-	print("start")
 	
 func _on_hötöattack_timer_timeout():
 	if HTTP_ammo > 0:
-		print("shoot")
 		var HTTP_attack = HTTP.instantiate()
 		HTTP_attack.position = position
 		HTTP_attack.target = get_random_target()
@@ -121,7 +119,6 @@ func _on_matrix_attack_timer_timeout():
 	MatrixAttackTimer.start()
 func _on_matrix_timer_timeout():
 	if Matrix_ammo > 0:
-		print("test")
 		var Matrix_attack = Matrix.instantiate()
 		Matrix_attack.position = position
 		Matrix_attack.last_movement = last_movement
@@ -158,7 +155,7 @@ func _on_enemy_detection_area_body_exited(body):
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp-= clamp(damage-armor, 1.0, 999) 
-	print(hp)
+	print("player hp", hp)
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
 
