@@ -22,22 +22,22 @@ const UPGRADES = {
 	},
 	"HTTPattack3": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
-		"displayname": "Ice Spear",
-		"details": "Ice Spears now pass through another enemy and do + 3 damage",
+		"displayname": "HTTP attack",
+		"details": "HTTP attacks now pass through another enemy and do + 3 damage",
 		"level": "Level: 3",
 		"prerequisite": ["HTTPattack2"],
 		"type": "weapon"
 	},
 	"HTTPattack4": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
-		"displayname": "Ice Spear",
-		"details": "An additional 2 Ice Spears are thrown",
+		"displayname": "HTTP attack",
+		"details": "An additional 2 HTTP attack are thrown",
 		"level": "Level: 4",
 		"prerequisite": ["HTTPattack3"],
 		"type": "weapon"
 	},
 	"NÄPPIS1": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "A magical NÄPPIS will follow you attacking enemies in a straight line",
 		"level": "Level: 1",
@@ -45,7 +45,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS2": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS will now attack an additional enemy per attack",
 		"level": "Level: 2",
@@ -53,7 +53,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS3": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS will attack another additional enemy per attack",
 		"level": "Level: 3",
@@ -61,7 +61,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"NÄPPIS4": {
-		"icon": WEAPON_PATH + "NÄPPIS.png",
+		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
 		"details": "The NÄPPIS now does + 5 damage per attack and causes 20% additional knockback",
 		"level": "Level: 4",
