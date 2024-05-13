@@ -21,7 +21,7 @@ scale = Vector2(0.384782, 0.385859)
 texture = ExtResource("2_vls8p")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 100.0
 one_shot = true
 autostart = true
 
