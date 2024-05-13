@@ -1,10 +1,15 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=16 format=3 uid="uid://cjv1q7mlg0hj1"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://cjv1q7mlg0hj1"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
 [ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="3_kpwyk"]
 [ext_resource type="AudioStream" uid="uid://cadwdacnc7d8d" path="res://Audio/Music/ingame.mp3" id="4_e005n"]
 [ext_resource type="Texture2D" uid="uid://f3tuwsea7p6r" path="res://Textures/GUI/exp_background.png" id="5_jo0di"]
+[ext_resource type="Script" path="res://Player/TimerPanel.gd" id="5_mtsix"]
 [ext_resource type="Texture2D" uid="uid://o1yr3h88v0so" path="res://Textures/GUI/exp_progress.png" id="6_e7aci"]
 [ext_resource type="FontFile" uid="uid://dru6y4rjlg0du" path="res://Font/tenderness.otf" id="7_644fq"]
 [ext_resource type="AudioStream" uid="uid://c5miqv3kjxnfn" path="res://Audio/SoundEffect/levelup.ogg" id="8_fjcw2"]
@@ -30,6 +35,7 @@ height = 2.98509
 radius = 0.40492
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 2
 scale = Vector2(118.542, 90.4496)
 script = ExtResource("1_1na3e")
 
@@ -111,6 +117,39 @@ anchors_preset = 0
 offset_right = 1150.0
 offset_bottom = 648.0
 
+[node name="TimerPanel" type="Panel" parent="GUILayer/GUI"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 55.0
+offset_bottom = 28.0
+script = ExtResource("5_mtsix")
+
+[node name="Minutes" type="Label" parent="GUILayer/GUI/TimerPanel"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 27.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("7_644fq")
+theme_override_font_sizes/font_size = 24
+text = "55:"
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="GUILayer/GUI/TimerPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.576
+anchor_bottom = 1.644
+offset_left = 28.0
+offset_top = 1.0
+offset_right = -6.464
+offset_bottom = -10.524
+theme_override_fonts/font = ExtResource("7_644fq")
+theme_override_font_sizes/font_size = 24
+text = "44"
+
 [node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -177,6 +216,9 @@ offset_bottom = 150.0
 unique_name_in_owner = true
 stream = ExtResource("8_fjcw2")
 volume_db = -39.533
+
+[node name="Timer" type="Timer" parent="GUILayer/GUI"]
+autostart = true
 
 [connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
 [connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]

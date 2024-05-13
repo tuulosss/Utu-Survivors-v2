@@ -29,6 +29,7 @@ experience = 25
 damage = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(5, -4)
 scale = Vector2(4.4208, 2.16652)
 texture = ExtResource("2_ng2st")

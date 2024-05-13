@@ -7,6 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whhal"]
 
 [node name="ExperienceGem" type="Area2D" groups=["loot"]]
+z_index = 1
 scale = Vector2(0.75, 0.75)
 collision_layer = 8
 collision_mask = 8
