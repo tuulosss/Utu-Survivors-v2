@@ -64,7 +64,7 @@ func _ready():
 	tween.play()
 	
 func _physics_process(delta):
-	print("position")
+
 	position += angle*speed*delta
 	
 func _on_timer_timeout():

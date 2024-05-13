@@ -20,12 +20,16 @@ var Matrix =preload("res://Player/Attack/Matrix.tscn")
 #HyökkäysNodet
 @onready var HötöTimer = get_node("%HötöTimer")
 @onready var HötöAttackTimer = get_node("%HötöAttackTimer")
+@onready var MatrixTimer = get_node("%MatrixTimer")
+@onready var MatrixAttackTimer = get_node("%MatrixAttackTimer")
 
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
 @onready var lblLevel = get_node("%lbl_level")
-@onready var MatrixTimer = get_node("%MatrixTimer")
-@onready var MatrixAttackTimer = get_node("%MatrixAttackTimer")
+@onready var levelPanel = get_node("%LevelUp")
+@onready var upgradeOptions = get_node("%UpgradeOptions")
+@onready var sndLevelUp = get_node("%snd_levelup")
+@onready var itemOptions = preload("res://Utility/item_option.tscn")
 
 #HTTP
 var HTTP_ammo = 0
@@ -98,12 +102,10 @@ func _on_hötöattack_timer_timeout():
 			
 			
 func _on_matrix_attack_timer_timeout():
-	print("attacktimeout")
 	Matrix_ammo += Matrix_baseammo
 	MatrixAttackTimer.start()
 
 func _on_matrix_timer_timeout():
-	print("matrixtimer")
 	if Matrix_ammo > 0:
 		print("test")
 		var Matrix_attack = Matrix.instantiate()
@@ -132,21 +134,11 @@ func _on_enemy_detection_area_body_exited(body):
 	if  enemy_close.has(body):
 		enemy_close.erase(body)
 
-
-
-
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp-=damage
 	print(hp)
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
-		
-		
-
-
-
-		
-		
 
 
 func _on_grab_area_area_entered(area):
@@ -165,19 +157,16 @@ func calculate_experience(gem_exp):
 	if experience + collected_experience >= exp_required: #level up
 		collected_experience -= exp_required-experience
 		experience_level += 1
-
-		lblLevel.text = str("Level: ", experience_level)
 		experience = 0
 		exp_required = calculate_experiencecap()
-		calculate_experience(0)
+		levelUp()
+
 	else:
 		experience+= collected_experience
 		collected_experience = 0
 		
 	
 	set_expbar(experience, exp_required)
-
-
 
 func calculate_experiencecap():
 	var exp_cap = experience_level
@@ -192,3 +181,34 @@ func calculate_experiencecap():
 func set_expbar(set_value = 1, set_max_value = 100):
 	expBar.value = set_value
 	expBar.max_value = set_max_value
+
+func levelUp():
+	sndLevelUp.play()
+	lblLevel.text = str("Level: ", experience_level)
+	var tween = levelPanel.create_tween()
+	tween.tween_property(levelPanel, "position", Vector2(390,76),0.4).set_trans(Tween.TRANS_QUINT).set_ease((Tween.EASE_IN))
+	tween.play()
+	levelPanel.visible = true
+	var options = 0
+	var optionsmax = 3
+	while options < optionsmax:
+		var option_choice = itemOptions.instantiate()
+		upgradeOptions.add_child(option_choice)
+		options += 1
+	get_tree().paused=true
+	
+
+func upgrade_character(upgrade):
+	var option_children = upgradeOptions.get_children()
+	for i in option_children:
+		i.queue_free()
+	
+	var tween = levelPanel.create_tween()
+	get_tree().paused = false
+	tween.tween_property(levelPanel, "position", Vector2(390,-500),0.4).set_trans(Tween.TRANS_QUINT).set_ease((Tween.EASE_IN))
+	tween.play() 
+	levelPanel.visible=false
+	
+	calculate_experience(0)
+	pass
+	
