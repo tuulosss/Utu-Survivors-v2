@@ -17,8 +17,8 @@ height = 0.707576
 radius = 10.2173
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs35m"]
-radius = 0.312126
-height = 0.950806
+radius = 0.269947
+height = 0.88447
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr70a"]
 radius = 1.29354
@@ -60,10 +60,8 @@ wait_time = 3.0
 unique_name_in_owner = true
 wait_time = 0.2
 
-[node name="NäppisBase" type="Node2D" parent="Attack"]
-unique_name_in_owner = true
-
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 light_mask = 4
 visibility_layer = 4
 position = Vector2(0.050615, 0.0442235)
@@ -82,11 +80,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, 7.45058e-09)
+position = Vector2(0.0168717, -0.0663353)
 shape = SubResource("CapsuleShape2D_qs35m")
 
 [node name="GrabArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 
@@ -94,7 +91,6 @@ collision_mask = 8
 shape = SubResource("CapsuleShape2D_nr70a")
 
 [node name="CollectArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 

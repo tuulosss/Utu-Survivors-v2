@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicei0dcygleb"]
+
+[ext_resource type="Script" path="res://Utility/item_option.gd" id="1_fwl14"]
+[ext_resource type="Texture2D" uid="uid://bc13vg27lwhoo" path="res://Player/Attack/HTTPatta.png" id="1_u6oce"]
+[ext_resource type="FontFile" uid="uid://dru6y4rjlg0du" path="res://Font/tenderness.otf" id="2_ufg02"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(360, 100)
+anchors_preset = -1
+anchor_right = 0.312
+anchor_bottom = 0.154
+offset_right = 0.575989
+offset_bottom = 0.207993
+color = Color(0.552941, 0.552941, 0.552941, 1)
+script = ExtResource("1_fwl14")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 52.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 5.0
+offset_right = 123.0
+offset_bottom = 105.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_u6oce")
+
+[node name="lbl_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_ufg02")
+text = "HTTP attack
+"
+horizontal_alignment = 1
+
+[node name="lbl_description" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 54.0
+offset_right = 332.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_ufg02")
+theme_override_font_sizes/font_size = 14
+text = "Description:"
+
+[node name="lbl_level" type="Label" parent="."]
+offset_left = 260.0
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_ufg02")
+theme_override_font_sizes/font_size = 24
+text = "Level: 1"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
