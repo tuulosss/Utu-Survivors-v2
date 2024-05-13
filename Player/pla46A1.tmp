@@ -1,0 +1,176 @@
+[gd_scene load_steps=14 format=3 uid="uid://cjv1q7mlg0hj1"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
+[ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
+[ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="3_kpwyk"]
+[ext_resource type="AudioStream" uid="uid://cadwdacnc7d8d" path="res://Audio/Music/ingame.mp3" id="4_e005n"]
+[ext_resource type="Texture2D" uid="uid://f3tuwsea7p6r" path="res://Textures/GUI/exp_background.png" id="5_jo0di"]
+[ext_resource type="Texture2D" uid="uid://o1yr3h88v0so" path="res://Textures/GUI/exp_progress.png" id="6_e7aci"]
+[ext_resource type="FontFile" uid="uid://dru6y4rjlg0du" path="res://Font/tenderness.otf" id="7_644fq"]
+[ext_resource type="AudioStream" uid="uid://c5miqv3kjxnfn" path="res://Audio/SoundEffect/levelup.ogg" id="8_fjcw2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqhub"]
+radius = 0.118102
+height = 0.707576
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cy7ba"]
+radius = 10.2173
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs35m"]
+radius = 0.312126
+height = 0.950806
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr70a"]
+radius = 1.29354
+height = 2.98509
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv4jr"]
+radius = 0.40492
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(118.542, 90.4496)
+script = ExtResource("1_1na3e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_dqhub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(0.00131929, 0.00195314)
+texture = ExtResource("1_gv42m")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -7.45058e-09)
+scale = Vector2(1036.03, 326.801)
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="HötöTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+
+[node name="HötöAttackTimer" type="Timer" parent="Attack/HötöTimer"]
+unique_name_in_owner = true
+wait_time = 0.05
+
+[node name="MatrixTimer" type="Timer" parent="Attack"]
+unique_name_in_owner = true
+wait_time = 3.0
+
+[node name="MatrixAttackTimer" type="Timer" parent="Attack/MatrixTimer"]
+unique_name_in_owner = true
+wait_time = 0.2
+
+[node name="NäppisBase" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
+
+[node name="EnemyDetectionArea" type="Area2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(0.050615, 0.0442235)
+monitorable = false
+
+[node name="EnemyDetectionShape" type="CollisionShape2D" parent="EnemyDetectionArea"]
+position = Vector2(-0.050615, -0.0442235)
+shape = SubResource("CircleShape2D_cy7ba")
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e005n")
+volume_db = -36.953
+
+[node name="HurtBox" parent="." instance=ExtResource("3_kpwyk")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 7.45058e-09)
+shape = SubResource("CapsuleShape2D_qs35m")
+
+[node name="GrabArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="GrabArea" type="CollisionShape2D" parent="GrabArea"]
+shape = SubResource("CapsuleShape2D_nr70a")
+
+[node name="CollectArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollectArea" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_fv4jr")
+
+[node name="GUILayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 648.0
+
+[node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 260.0
+offset_top = 10.0
+offset_right = 900.0
+offset_bottom = 50.0
+texture_under = ExtResource("5_jo0di")
+texture_progress = ExtResource("6_e7aci")
+
+[node name="lbl_level" type="Label" parent="GUILayer/GUI/ExperienceBar"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = -1.0
+offset_right = 372.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("7_644fq")
+theme_override_font_sizes/font_size = 16
+text = "Level : 1
+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 0
+offset_left = 400.0
+offset_top = -500.0
+offset_right = 800.0
+
+[node name="lbl_LevelUP" type="Label" parent="GUILayer/GUI/LevelUp"]
+layout_mode = 0
+offset_right = 399.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("7_644fq")
+text = "Level Up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 50.0
+offset_right = 375.0
+offset_bottom = 150.0
+
+[node name="snd_levelup" type="AudioStreamPlayer" parent="GUILayer/GUI/LevelUp"]
+unique_name_in_owner = true
+stream = ExtResource("8_fjcw2")
+volume_db = -30.0
+
+[connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
+[connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]
+[connection signal="timeout" from="Attack/MatrixTimer" to="." method="_on_matrix_timer_timeout"]
+[connection signal="timeout" from="Attack/MatrixTimer/MatrixAttackTimer" to="." method="_on_matrix_attack_timer_timeout"]
+[connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
+[connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
+[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
+
+[editable path="HurtBox"]

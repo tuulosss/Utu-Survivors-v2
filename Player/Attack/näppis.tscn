@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Player/Attack/näppis.gd" id="1_e67f1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25xpl"]
-size = Vector2(93, 26)
+size = Vector2(41.75, 10.75)
 
 [node name="näppis" type="Area2D" groups=["attack"]]
 top_level = true
@@ -13,14 +13,13 @@ collision_mask = 0
 script = ExtResource("1_e67f1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(60, 35)
-scale = Vector2(0.2825, 0.255)
+position = Vector2(28.75, 20.75)
+scale = Vector2(0.12625, 0.1125)
 texture = ExtResource("1_d30kr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(60.5, 34)
+position = Vector2(29.125, 20.625)
 shape = SubResource("RectangleShape2D_25xpl")
-disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
