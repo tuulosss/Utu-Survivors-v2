@@ -7,6 +7,10 @@ extends CharacterBody2D
 @export var movement_speed =100
 var hp=2
 
+var experience = 0
+var experience_level = 1
+var collected_experience = 0
+
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 
@@ -14,10 +18,14 @@ var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 @onready var HötöTimer = get_node("%HötöTimer")
 @onready var HötöAttackTimer = get_node("%HötöAttackTimer")
 
+#GUI
+@onready var expBar = get_node("%ExperienceBar")
+@onready var lblLevel = get_node("%lbl_level")
+
 #HTTP
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
-var HTTP_attackspeed = 4
+var HTTP_attackspeed = 2
 var HTTP_level = 1
 
 #Vihu
@@ -26,6 +34,7 @@ var enemy_close = []
 func _ready():
 	GameMusic.play()
 	attack()
+	set_expbar(experience, calculate_experiencecap())
 
 func _physics_process(delta):
 	movement()
@@ -91,3 +100,48 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
 		
 		
+
+
+func _on_grab_area_area_entered(area):
+	if area.is_in_group("loot"):
+		area.target = self
+
+
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var gem_exp = area.collect()
+		calculate_experience(gem_exp)
+	
+func calculate_experience(gem_exp):
+	var exp_required = calculate_experiencecap()
+	collected_experience+=gem_exp
+	if experience + collected_experience >= exp_required: #level up
+		collected_experience -= exp_required-experience
+		experience_level += 1
+
+		lblLevel.text = str("Level: ", experience_level)
+		experience = 0
+		exp_required = calculate_experiencecap()
+		calculate_experience(0)
+	else:
+		experience+= collected_experience
+		collected_experience = 0
+		
+	
+	set_expbar(experience, exp_required)
+
+
+
+func calculate_experiencecap():
+	var exp_cap = experience_level
+	if experience_level < 20:
+		exp_cap = experience_level*5
+	elif experience_level <40:
+		exp_cap+95*(experience_level-19)*8
+	else:
+		exp_cap = 255 + (experience_level-39)*12
+	return exp_cap
+
+func set_expbar(set_value = 1, set_max_value = 100):
+	expBar.value = set_value
+	expBar.max_value = set_max_value
