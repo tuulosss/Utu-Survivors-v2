@@ -23,10 +23,10 @@ var Matrix =preload("res://Player/Attack/Matrix.tscn")
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
 var HTTP_attackspeed = 4
-var HTTP_level = 0
+var HTTP_level = 1
 
 #Matrix
-var Matrix_ammo = 0
+var Matrix_ammo = 100
 var Matrix_baseammo = 1
 var Matrix_attackspeed = 3
 var Matrix_level = 1
@@ -56,7 +56,6 @@ func movement():
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
-
 #HTTP Hyökkäys
 func attack():
 	
@@ -75,6 +74,7 @@ func _on_hötötimer_timeout():
 	HTTP_ammo += HTTP_baseammo
 	HötöAttackTimer.start()
 	print("start")
+	
 func _on_hötöattack_timer_timeout():
 	if HTTP_ammo > 0:
 		print("shoot")
@@ -100,6 +100,7 @@ func _on_matrix_attack_timer_timeout():
 func _on_matrix_timer_timeout():
 	print("matrixtimer")
 	if Matrix_ammo > 0:
+		print("test")
 		var Matrix_attack = Matrix.instantiate()
 		Matrix_attack.position = position
 		Matrix_attack.last_movement = last_movement

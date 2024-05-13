@@ -43,11 +43,11 @@ wait_time = 0.05
 
 [node name="MatrixTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 3.0
 
 [node name="MatrixAttackTimer" type="Timer" parent="Attack/MatrixTimer"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 0.2
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 light_mask = 4
