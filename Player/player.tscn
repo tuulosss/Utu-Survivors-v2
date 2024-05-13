@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjv1q7mlg0hj1"]
+[gd_scene load_steps=17 format=3 uid="uid://cjv1q7mlg0hj1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c5miqv3kjxnfn" path="res://Audio/SoundEffect/levelup.ogg" id="8_fjcw2"]
 [ext_resource type="Texture2D" uid="uid://cugh4bpi8sv8e" path="res://Textures/GUI/healthbar.png" id="9_5msj3"]
 [ext_resource type="Texture2D" uid="uid://p8mrqjyymx2k" path="res://Textures/GUI/health.png" id="10_4ue3g"]
+[ext_resource type="Script" path="res://Player/TimerPanel.gd" id="11_bwkvj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqhub"]
 radius = 0.118102
@@ -177,6 +178,38 @@ offset_bottom = 150.0
 unique_name_in_owner = true
 stream = ExtResource("8_fjcw2")
 volume_db = -39.533
+
+[node name="TimerPanel" type="Panel" parent="GUILayer/GUI"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 20.0
+script = ExtResource("11_bwkvj")
+
+[node name="Minutes" type="Label" parent="GUILayer/GUI/TimerPanel"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 6.0
+offset_right = 54.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("7_644fq")
+theme_override_font_sizes/font_size = 24
+text = "22:"
+
+[node name="Seconds" type="Label" parent="GUILayer/GUI/TimerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 6.0
+offset_right = 32.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_644fq")
+theme_override_font_sizes/font_size = 24
+text = "33"
 
 [connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
 [connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]

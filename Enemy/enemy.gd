@@ -38,7 +38,7 @@ func  _physics_process(_delta):
 func death():
 		emit_signal("remove_from_array",self)
 		var enemy_death = death_anim.instantiate()
-		enemy_death.scale = $Sprite2D.scale
+		enemy_death.scale = $Sprite2D.scale*10
 		enemy_death.global_position = global_position
 		get_parent().call_deferred("add_child",enemy_death)
 		var new_gem = exp_gem.instantiate()
