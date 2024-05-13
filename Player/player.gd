@@ -29,7 +29,7 @@ var Näppis = preload("res://Player/Attack/näppis.tscn")
 @onready var upgradeOptions = get_node("%UpgradeOptions")
 @onready var sndLevelUp = get_node("%snd_levelup")
 @onready var itemOptions = preload("res://Utility/item_option.tscn")
-
+@onready var healthBar = get_node("%HealthBar")
 #UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
@@ -62,6 +62,7 @@ func _ready():
 	GameMusic.play()
 	attack()
 	set_expbar(experience, calculate_experiencecap())
+	_on_hurt_box_hurt(0,0,0)
 
 func _physics_process(_delta):
 	movement()
@@ -160,7 +161,9 @@ func _on_enemy_detection_area_body_exited(body):
 		enemy_close.erase(body)
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
-	hp-= clamp(damage-armor, 1.0, 999) 
+	hp-= clamp(damage-armor, 1.0, 999)
+	healthBar.max_value =maxhp
+	healthBar.value = hp
 	print("player hp", hp)
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")

@@ -11,7 +11,6 @@ func _on_timer_timeout():
 	for i in enemy_spawns:
 		if time > i.time_start and time < i.time_end:
 			if i.spawn_delay_counter < i.enemy_spawn_delay:
-				print("")
 				i.spawn_delay_counter += 1
 			else:
 				i.spawn_delay_counter = 0
@@ -49,6 +48,4 @@ func get_random_position():
 			
 	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos1.y)
-	print(x_spawn)
-	print(y_spawn)
 	return Vector2(x_spawn, y_spawn)

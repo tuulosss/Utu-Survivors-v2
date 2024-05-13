@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjv1q7mlg0hj1"]
+[gd_scene load_steps=16 format=3 uid="uid://cjv1q7mlg0hj1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://o1yr3h88v0so" path="res://Textures/GUI/exp_progress.png" id="6_e7aci"]
 [ext_resource type="FontFile" uid="uid://dru6y4rjlg0du" path="res://Font/tenderness.otf" id="7_644fq"]
 [ext_resource type="AudioStream" uid="uid://c5miqv3kjxnfn" path="res://Audio/SoundEffect/levelup.ogg" id="8_fjcw2"]
+[ext_resource type="Texture2D" uid="uid://cugh4bpi8sv8e" path="res://Textures/GUI/healthbar.png" id="9_5msj3"]
+[ext_resource type="Texture2D" uid="uid://p8mrqjyymx2k" path="res://Textures/GUI/health.png" id="10_4ue3g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqhub"]
 radius = 0.118102
@@ -132,6 +134,19 @@ text = "Level : 1
 "
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 543.0
+offset_top = 342.0
+offset_right = 623.0
+offset_bottom = 352.0
+scale = Vector2(2, 1)
+value = 100.0
+texture_over = ExtResource("9_5msj3")
+texture_progress = ExtResource("10_4ue3g")
 
 [node name="LevelUp" type="Panel" parent="GUILayer/GUI"]
 unique_name_in_owner = true

@@ -16,7 +16,6 @@ var angle = Vector2.ZERO
 var reset_pos = Vector2.ZERO
 var spr_näp_reg =preload("res://Textures/Items/Weapons/näppis.png")
 
-
 signal remove_from_array(object)
 @onready var player = get_tree().get_first_node_in_group(("player"))
 @onready var sprite = $Sprite2D

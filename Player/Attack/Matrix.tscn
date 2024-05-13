@@ -100,6 +100,5 @@ autostart = true
 stream = ExtResource("3_ehhxc")
 volume_db = -27.733
 pitch_scale = 0.79
-stream_paused = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
