@@ -23,7 +23,7 @@ offset_right = 52.0
 offset_bottom = 52.0
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+[node name="ItemIcon" type="TextureRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 5.0
@@ -44,6 +44,7 @@ text = "HTTP attack
 horizontal_alignment = 1
 
 [node name="lbl_description" type="Label" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 54.0
 offset_right = 332.0
@@ -53,6 +54,7 @@ theme_override_font_sizes/font_size = 14
 text = "Description:"
 
 [node name="lbl_level" type="Label" parent="."]
+layout_mode = 0
 offset_left = 260.0
 offset_top = 6.0
 offset_right = 321.0

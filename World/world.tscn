@@ -218,4 +218,3 @@ scale = Vector2(63.6485, 42.8311)
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("14_8xlu2")]
 position = Vector2(120, -58)
-experience = 5
