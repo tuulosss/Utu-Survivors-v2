@@ -43,7 +43,7 @@ var Matrix_attackspeed = 3
 var Matrix_level = 0
 
 #Näppis
-var Näppis_ammo = 1
+var Näppis_ammo = 0
 var Näppis_level = 1
 
 #Vihu

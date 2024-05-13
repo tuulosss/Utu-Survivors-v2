@@ -30,9 +30,10 @@ experience = 5
 damage = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.00001, -1)
+position = Vector2(3, 0)
 scale = Vector2(0.0855356, 0.0438734)
 texture = ExtResource("2_27arj")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qsdof")
