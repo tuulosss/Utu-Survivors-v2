@@ -84,7 +84,7 @@ func _on_enemy_detection_area_body_exited(body):
 		enemy_close.erase(body)
 
 
-func _on_hurt_box_hurt(damage):
+func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp-=damage
 	print(hp)
 	if hp <= 0:
