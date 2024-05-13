@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
-[ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Textures/Utility/hurt_box.tscn" id="3_2xh2h"]
+[ext_resource type="PackedScene" uid="uid://db5bs7cvvon5g" path="res://Utility/hurt_box_2.tscn" id="2_87vhw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0eae"]
+size = Vector2(0.455535, 0.895526)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dqhub"]
 radius = 0.118102
 height = 0.707576
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoshv"]
-radius = 34.0
-height = 68.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cy7ba"]
 radius = 6.19504
@@ -18,6 +17,14 @@ radius = 6.19504
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(118.542, 90.4496)
 script = ExtResource("1_1na3e")
+
+[node name="HurtBox2" parent="." instance=ExtResource("2_87vhw")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox2" index="0"]
+position = Vector2(0, -0.0276397)
+shape = SubResource("RectangleShape2D_h0eae")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_dqhub")
@@ -30,20 +37,6 @@ texture = ExtResource("1_gv42m")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -7.45058e-09)
 scale = Vector2(1036.03, 326.801)
-
-[node name="HurtBox" parent="." instance=ExtResource("3_2xh2h")]
-position = Vector2(0, 2.51382e-15)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="HurtBox" index="0"]
-light_mask = 17
-visibility_layer = 17
-position = Vector2(0.00843583, -0.0442233)
-shape = SubResource("CapsuleShape2D_qoshv")
-
-[node name="DisableTimer" parent="HurtBox" index="1"]
-one_shot = true
 
 [node name="Attack" type="Node2D" parent="."]
 
@@ -61,13 +54,14 @@ position = Vector2(0.050615, 0.0442235)
 monitorable = false
 
 [node name="EnemyDetectionShape" type="CollisionShape2D" parent="EnemyDetectionArea"]
+visible = false
 position = Vector2(-0.050615, -0.0442235)
 shape = SubResource("CircleShape2D_cy7ba")
 
-[connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
+[connection signal="hurt" from="HurtBox2" to="." method="_on_hurt_box_2_hurt"]
 [connection signal="timeout" from="Attack/HötöTimer" to="." method="_on_hötötimer_timeout"]
 [connection signal="timeout" from="Attack/HötöTimer/HötöAttackTimer" to="." method="_on_hötöattack_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_entered"]
 [connection signal="body_exited" from="EnemyDetectionArea" to="." method="_on_enemy_detection_area_body_exited"]
 
-[editable path="HurtBox"]
+[editable path="HurtBox2"]
