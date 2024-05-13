@@ -4,21 +4,32 @@ extends CharacterBody2D
 #musiikki
 @onready var GameMusic = $GameMusic
 
-@export var movement_speed =100
+#pelaajan movement
+@export var movement_speed = 100
 var hp=2
+var last_movement = Vector2.UP
 
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
+var Matrix =preload("res://Player/Attack/Matrix.tscn")
 
 #HyökkäysNodet
 @onready var HötöTimer = get_node("%HötöTimer")
 @onready var HötöAttackTimer = get_node("%HötöAttackTimer")
+@onready var MatrixTimer = get_node("%MatrixTimer")
+@onready var MatrixAttackTimer = get_node("%MatrixAttackTimer")
 
 #HTTP
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
 var HTTP_attackspeed = 4
-var HTTP_level = 1
+var HTTP_level = 0
+
+#Matrix
+var Matrix_ammo = 0
+var Matrix_baseammo = 1
+var Matrix_attackspeed = 3
+var Matrix_level = 1
 
 #Vihu
 var enemy_close = []
@@ -38,6 +49,10 @@ func movement():
 		$Sprite2D.flip_h = true;
 	elif x_mov == -1:
 		$Sprite2D.flip_h = false;
+		
+	if mov != Vector2.ZERO:
+		last_movement = mov
+		
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
@@ -49,13 +64,20 @@ func attack():
 		HötöTimer.wait_time = HTTP_attackspeed
 		if HötöTimer.is_stopped():
 			HötöTimer.start()
+			
+	if Matrix_level > 0:
+		MatrixTimer.wait_time = Matrix_attackspeed
+		if MatrixTimer.is_stopped():
+			MatrixTimer.start()
 
 #Attack Timer
 func _on_hötötimer_timeout():
 	HTTP_ammo += HTTP_baseammo
 	HötöAttackTimer.start()
+	print("start")
 func _on_hötöattack_timer_timeout():
 	if HTTP_ammo > 0:
+		print("shoot")
 		var HTTP_attack = HTTP.instantiate()
 		HTTP_attack.position = position
 		var target = get_random_target()
@@ -68,6 +90,27 @@ func _on_hötöattack_timer_timeout():
 			HötöAttackTimer.start()
 		else:
 			HötöAttackTimer.stop()
+			
+			
+func _on_matrix_attack_timer_timeout():
+	print("attacktimeout")
+	Matrix_ammo += Matrix_baseammo
+	MatrixAttackTimer.start()
+
+func _on_matrix_timer_timeout():
+	print("matrixtimer")
+	if Matrix_ammo > 0:
+		var Matrix_attack = Matrix.instantiate()
+		Matrix_attack.position = position
+		Matrix_attack.last_movement = last_movement
+		Matrix_attack.level = Matrix_level
+		add_child(Matrix_attack)
+		Matrix_ammo -= 1
+		if Matrix_ammo > 0:
+			MatrixAttackTimer.start()
+		else:
+			MatrixAttackTimer.stop()
+	
 	
 func get_random_target():
 	if enemy_close.size() > 0:
@@ -91,3 +134,6 @@ func _on_hurt_box_hurt(damage):
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
 		
 		
+
+
+

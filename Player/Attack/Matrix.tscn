@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://bglbia32navvl"]
+
+[ext_resource type="Script" path="res://Player/Attack/Matrix.gd" id="1_q0f3a"]
+[ext_resource type="Texture2D" uid="uid://dkj1m54bxjg4l" path="res://Textures/Items/Weapons/matrix animation.png" id="2_n613b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfkds"]
+atlas = ExtResource("2_n613b")
+region = Rect2(0, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he11n"]
+atlas = ExtResource("2_n613b")
+region = Rect2(87, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf7x7"]
+atlas = ExtResource("2_n613b")
+region = Rect2(174, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y733f"]
+atlas = ExtResource("2_n613b")
+region = Rect2(261, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wev0j"]
+atlas = ExtResource("2_n613b")
+region = Rect2(348, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a24um"]
+atlas = ExtResource("2_n613b")
+region = Rect2(435, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udala"]
+atlas = ExtResource("2_n613b")
+region = Rect2(522, 0, 87, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbdid"]
+atlas = ExtResource("2_n613b")
+region = Rect2(609, 0, 87, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sclr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfkds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he11n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf7x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y733f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wev0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a24um")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udala")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbdid")
+}],
+"loop": true,
+"name": &"Matrix",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0nc5"]
+radius = 40.05
+
+[node name="Matrix" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_q0f3a")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sclr0")
+animation = &"Matrix"
+frame_progress = 0.799241
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_v0nc5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
