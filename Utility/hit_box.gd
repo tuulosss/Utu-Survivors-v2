@@ -2,7 +2,7 @@ extends Node
 
 @export var damage = 1
 
-@onready var collision = $HitBoxShape
+@onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableHitBoxTimer
 
 func tempdisable():
