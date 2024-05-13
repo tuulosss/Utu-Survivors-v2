@@ -13,7 +13,6 @@ var angle = Vector2.ZERO
 var player = null
 var _smoothed_mouse_pos: Vector2 
 
-
 signal remove_from_array(object)
 #@onready var player = get_tree().get_first_node_in_group("player") 
 
@@ -27,17 +26,15 @@ func _ready():
 			damage = 3
 			knockback_amount = 100
 			attack_size = 1.0
-			
-			
+
 func _physics_process(delta):
 	position += angle*speed*delta
-	
+
 func enemy_hit(charge = 1):
 	hp -= charge
 	if hp < 0:
 		emit_signal("remove_from_array",self)
 		queue_free()
-
 
 func _on_timer_timeout():
 	emit_signal("remove_from_array",self)

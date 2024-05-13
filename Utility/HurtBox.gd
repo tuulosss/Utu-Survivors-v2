@@ -5,11 +5,9 @@ extends Area2D
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $Timer
 
-
 signal hurt(damage, angle, knockback)
 
 var hit_once_array = []
-
 
 func _on_area_entered(area):
 	print("area entereds")
@@ -46,7 +44,6 @@ func _on_area_entered(area):
 func remove_from_list(object):
 	if hit_once_array.has(object):
 		hit_once_array.erase(object)
-	
 
 func _on_timer_timeout():
 	collision.call_deferred("set","disabled",false)

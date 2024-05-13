@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://23mnwyv8ucr"
-path="res://.godot/imported/javelin_3_new.png-c2a8e5e6f63e6b577a700a48807a6b39.ctex"
+uid="uid://dmf2d0xfbknwd"
+path="res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/javelin_3_new.png"
-dest_files=["res://.godot/imported/javelin_3_new.png-c2a8e5e6f63e6b577a700a48807a6b39.ctex"]
+source_file="res://Textures/Items/Weapons/NÄPPIS.png"
+dest_files=["res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"]
 
 [params]
 

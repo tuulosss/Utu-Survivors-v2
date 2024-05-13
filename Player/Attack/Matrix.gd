@@ -26,7 +26,8 @@ func _ready():
 			damage =3
 			knockback_amount = 100
 			attack_size = 1.0
-
+			
+	#last movement
 	var move_to_less = Vector2.ZERO
 	var move_to_more = Vector2.ZERO
 	match last_movement:
@@ -43,6 +44,14 @@ func _ready():
 	angle_less = global_position.direction_to(move_to_less)
 	angle_more = global_position.direction_to(move_to_more)
 	
+	#matrix nopeus ja koko
+	var initial_tween = create_tween().set_parallel(true)
+	initial_tween.tween_property(self,"scale",Vector2(1,1)*attack_size,3).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	var final_speed = speed
+	speed = speed/5.0
+	initial_tween.tween_property(self,"speed",final_speed, 6).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	initial_tween.play()
+	#matrix liikkumisanimaatio
 	var tween = create_tween()
 	var set_angle = randi_range(0,1)
 	if set_angle == 1:
@@ -64,7 +73,6 @@ func _ready():
 	tween.play()
 	
 func _physics_process(delta):
-	print("position")
 	position += angle*speed*delta
 	
 func _on_timer_timeout():
@@ -73,4 +81,3 @@ func _on_timer_timeout():
 
 func enemy_hit(_charge):
 	pass
-	

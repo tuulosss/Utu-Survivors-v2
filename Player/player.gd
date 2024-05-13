@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-
 #musiikki
 @onready var GameMusic = $GameMusic
 
-#pelaajan movement
+#pelaajan stats ja movement
 @export var movement_speed = 100
 var hp=2
-
 var experience = 0
 var experience_level = 1
 var collected_experience = 0
@@ -16,28 +14,33 @@ var last_movement = Vector2.UP
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 var Matrix =preload("res://Player/Attack/Matrix.tscn")
-
+var Näppis = preload("res://Player/Attack/näppis.tscn")
 #HyökkäysNodet
 @onready var HötöTimer = get_node("%HötöTimer")
 @onready var HötöAttackTimer = get_node("%HötöAttackTimer")
-
+@onready var MatrixTimer = get_node("%MatrixTimer")
+@onready var MatrixAttackTimer = get_node("%MatrixAttackTimer")
+@onready var NäppisBase = get_node("%NäppisBase")
 #GUI
 @onready var expBar = get_node("%ExperienceBar")
 @onready var lblLevel = get_node("%lbl_level")
-@onready var MatrixTimer = get_node("%MatrixTimer")
-@onready var MatrixAttackTimer = get_node("%MatrixAttackTimer")
+
 
 #HTTP
 var HTTP_ammo = 0
 var HTTP_baseammo = 1
 var HTTP_attackspeed = 2
-var HTTP_level = 1
+var HTTP_level = 0
 
 #Matrix
 var Matrix_ammo = 100
 var Matrix_baseammo = 1
 var Matrix_attackspeed = 3
-var Matrix_level = 1
+var Matrix_level = 0
+
+#Näppis
+var Näppis_ammo = 1
+var Näppis_level = 1
 
 #Vihu
 var enemy_close = []
@@ -46,7 +49,7 @@ func _ready():
 	attack()
 	set_expbar(experience, calculate_experiencecap())
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	movement()
 
 func movement():
@@ -75,7 +78,9 @@ func attack():
 		MatrixTimer.wait_time = Matrix_attackspeed
 		if MatrixTimer.is_stopped():
 			MatrixTimer.start()
-
+			
+	if Näppis_level > 0:
+		spawn_Näppis()
 #Attack Timer
 func _on_hötötimer_timeout():
 	HTTP_ammo += HTTP_baseammo
@@ -101,7 +106,6 @@ func _on_matrix_attack_timer_timeout():
 	print("attacktimeout")
 	Matrix_ammo += Matrix_baseammo
 	MatrixAttackTimer.start()
-
 func _on_matrix_timer_timeout():
 	print("matrixtimer")
 	if Matrix_ammo > 0:
@@ -116,8 +120,16 @@ func _on_matrix_timer_timeout():
 			MatrixAttackTimer.start()
 		else:
 			MatrixAttackTimer.stop()
-	
-	
+			
+func spawn_Näppis():
+	var get_Näppis_total = NäppisBase.get_child_count()
+	var calc_spawns =Näppis_ammo - get_Näppis_total
+	while calc_spawns > 0:
+		var Näppis_spawn = Näppis.instantiate()
+		Näppis_spawn.global_position = global_position
+		NäppisBase.add_child(Näppis_spawn)
+		calc_spawns -= 1
+		
 func get_random_target():
 	if enemy_close.size() > 0:
 		return enemy_close.pick_random().global_position
@@ -132,27 +144,15 @@ func _on_enemy_detection_area_body_exited(body):
 	if  enemy_close.has(body):
 		enemy_close.erase(body)
 
-
-
-
 func _on_hurt_box_hurt(damage):
 	hp-=damage
 	print(hp)
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
-		
-		
-
-
-
-		
-		
-
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):
 		area.target = self
-
 
 func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
@@ -174,10 +174,7 @@ func calculate_experience(gem_exp):
 		experience+= collected_experience
 		collected_experience = 0
 		
-	
 	set_expbar(experience, exp_required)
-
-
 
 func calculate_experiencecap():
 	var exp_cap = experience_level

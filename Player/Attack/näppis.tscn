@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://o6tdkp46tx4s"]
+
+[ext_resource type="Texture2D" uid="uid://dmf2d0xfbknwd" path="res://Textures/Items/Weapons/NÄPPIS.png" id="1_d30kr"]
+[ext_resource type="Script" path="res://Player/Attack/näppis.gd" id="1_e67f1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25xpl"]
+size = Vector2(93, 26)
+
+[node name="näppis" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_e67f1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(60, 35)
+scale = Vector2(0.2825, 0.255)
+texture = ExtResource("1_d30kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(60.5, 34)
+shape = SubResource("RectangleShape2D_25xpl")
+disabled = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="ChangeDirection" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+
+[node name="ResetPosTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="snd_attack" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="ChangeDirection" to="." method="_on_change_direction_timeout"]
+[connection signal="timeout" from="ResetPosTimer" to="." method="_on_reset_pos_timer_timeout"]

@@ -1,7 +1,6 @@
 extends Area2D
 
 @export_enum("Cooldown", "HitOnce", "DisableHitBox") var HurtBoxType = 0
-
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $Timer
 
@@ -22,7 +21,6 @@ func _on_area_entered(area):
 						area.tempdisable()
 			var damage = area.damage
 			emit_signal("hurt", damage)
-
 
 func _on_timer_timeout():
 	collision.call_deferred("set","disabled",false)

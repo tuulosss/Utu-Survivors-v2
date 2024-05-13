@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var GameOverMusic = $Over
 func _on_quit_pressed():
 	get_tree().quit()
