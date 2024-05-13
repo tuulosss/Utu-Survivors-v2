@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 #pelaajan stats ja movement
 @export var movement_speed = 100
-var hp=2
+var hp=100
 var experience = 0
 var experience_level = 1
 var collected_experience = 0

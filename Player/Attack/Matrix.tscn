@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bglbia32navvl"]
+[gd_scene load_steps=14 format=3 uid="uid://bglbia32navvl"]
 
 [ext_resource type="Script" path="res://Player/Attack/Matrix.gd" id="1_q0f3a"]
 [ext_resource type="Texture2D" uid="uid://dkj1m54bxjg4l" path="res://Textures/Items/Weapons/matrix animation.png" id="2_n613b"]
+[ext_resource type="AudioStream" uid="uid://cpha86w1jxc21" path="res://Audio/SoundEffect/zap.mp3" id="3_ehhxc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfkds"]
 atlas = ExtResource("2_n613b")
@@ -96,5 +97,8 @@ wait_time = 20.0
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ehhxc")
+volume_db = -16.9
+pitch_scale = 0.79
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

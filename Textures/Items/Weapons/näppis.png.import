@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmf2d0xfbknwd"
-path="res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"
+path="res://.godot/imported/näppis.png-b8408fde80aa08747b90e4bb11c4c8f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Items/Weapons/NÄPPIS.png"
-dest_files=["res://.godot/imported/NÄPPIS.png-2ca24ece74a0146ae557eecc2452f135.ctex"]
+source_file="res://Textures/Items/Weapons/näppis.png"
+dest_files=["res://.godot/imported/näppis.png-b8408fde80aa08747b90e4bb11c4c8f0.ctex"]
 
 [params]
 

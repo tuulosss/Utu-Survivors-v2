@@ -1,37 +1,38 @@
 [gd_scene load_steps=10 format=3 uid="uid://4p774vu0180f"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_7y4bu"]
-[ext_resource type="Texture2D" uid="uid://bbyykjcyqqimx" path="res://Textures/Enemy/megaörkki.png" id="2_y6not"]
+[ext_resource type="Texture2D" uid="uid://c22fkpida2jr7" path="res://Textures/Enemy/skeleton head.png" id="2_27arj"]
 [ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="3_wruo8"]
 [ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="4_0k4dk"]
 [ext_resource type="AudioStream" uid="uid://c4exw1ele56gt" path="res://Audio/SoundEffect/enemy_hit2.ogg" id="5_p5ukl"]
 [ext_resource type="AudioStream" uid="uid://da8f5ldkfbr48" path="res://Audio/SoundEffect/enemy_death2.ogg" id="6_ngox7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
-radius = 3.0
-height = 24.0
+radius = 7.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gxrj"]
-radius = 13.0
-height = 42.0
+radius = 11.0
+height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7ljs"]
-radius = 13.0
-height = 42.0
+radius = 11.0
+height = 22.0
 
 [node name="enemy_örkki" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_7y4bu")
-movement_speed = 60.0
-hp = 10
+movement_speed = 100.0
+hp = 4
 knockback_recovery = 10.0
-experience = 3
-damage = 2
+experience = 5
+damage = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.43992, 0.955494)
-texture = ExtResource("2_y6not")
+position = Vector2(-3.00001, -1)
+scale = Vector2(0.0855356, 0.0438734)
+texture = ExtResource("2_27arj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qsdof")
