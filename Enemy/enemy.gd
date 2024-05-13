@@ -34,7 +34,7 @@ func  _physics_process(_delta):
 
 	velocity = direction*movement_speed
 	velocity += knockback
-	
+
 func death():
 		emit_signal("remove_from_array",self)
 		var enemy_death = death_anim.instantiate()

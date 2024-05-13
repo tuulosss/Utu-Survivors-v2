@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/KnuvoOST.mp3-2c6ea4990b4b5e3dbaa4c3a4b8444d46
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
