@@ -1,20 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://bytq12r516xlj"]
+[gd_scene load_steps=13 format=3 uid="uid://bytq12r516xlj"]
 
 [ext_resource type="Script" path="res://Utility/EnemySpawner.gd" id="1_r6ij2"]
-[ext_resource type="PackedScene" uid="uid://dj5elpk4ma3gc" path="res://Enemy/enemy.tscn" id="2_t2bc5"]
+[ext_resource type="PackedScene" uid="uid://dj5elpk4ma3gc" path="res://Enemy/enemy_örkki_heikko.tscn" id="2_t2bc5"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="3_u3i6a"]
+[ext_resource type="PackedScene" uid="uid://4p774vu0180f" path="res://Enemy/enemy_KALLO.tscn" id="4_o872g"]
+[ext_resource type="PackedScene" uid="uid://p8k611ml7yln" path="res://Enemy/enemy_örkki_vahva.tscn" id="5_on1u1"]
 
 [sub_resource type="Resource" id="Resource_wdu1n"]
 script = ExtResource("3_u3i6a")
 time_start = 0
-time_end = 60
+time_end = 20
 enemy = ExtResource("2_t2bc5")
 enemy_num = 2
 enemy_spawn_delay = 1
 
+[sub_resource type="Resource" id="Resource_fkcma"]
+script = ExtResource("3_u3i6a")
+time_start = 30
+time_end = 210
+enemy = ExtResource("2_t2bc5")
+enemy_num = 2
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_r0ql3"]
+script = ExtResource("3_u3i6a")
+time_start = 60
+time_end = 180
+enemy = ExtResource("4_o872g")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_lmo2f"]
+script = ExtResource("3_u3i6a")
+time_start = 180
+time_end = 210
+enemy = ExtResource("5_on1u1")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_owaeo"]
+script = ExtResource("3_u3i6a")
+time_start = 210
+time_end = 300
+enemy = ExtResource("4_o872g")
+enemy_num = 3
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_xcja7"]
+script = ExtResource("3_u3i6a")
+time_start = 210
+time_end = 300
+enemy = ExtResource("5_on1u1")
+enemy_num = 4
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_n3jmw"]
+script = ExtResource("3_u3i6a")
+time_start = 210
+time_end = 210
+enemy = ExtResource("4_o872g")
+enemy_num = 0
+enemy_spawn_delay = 0
+
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_r6ij2")
-spawns = Array[ExtResource("3_u3i6a")]([SubResource("Resource_wdu1n")])
+spawns = Array[ExtResource("3_u3i6a")]([SubResource("Resource_wdu1n"), SubResource("Resource_fkcma"), SubResource("Resource_r0ql3"), SubResource("Resource_lmo2f"), SubResource("Resource_owaeo"), SubResource("Resource_xcja7"), SubResource("Resource_n3jmw")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
