@@ -11,7 +11,6 @@ extends Area2D
 var target =Vector2.ZERO
 var angle = Vector2.ZERO
 @onready var player = get_tree().get_first_node_in_group("player")
-var _smoothed_mouse_pos: Vector2 
 
 signal remove_from_array(object)
 #@onready var player = get_tree().get_first_node_in_group("player") 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://hogf65gloxjt"]
+[gd_scene load_steps=36 format=3 uid="uid://hogf65gloxjt"]
 
 [ext_resource type="Texture2D" uid="uid://cwcc8xoawf2m" path="res://Textures/worldtextures/hiekkavkaks.png" id="2_0ql1x"]
 [ext_resource type="PackedScene" uid="uid://cjv1q7mlg0hj1" path="res://Player/player.tscn" id="2_78rv2"]
@@ -460,20 +460,6 @@ animations = [{
 radius = 98.0139
 height = 322.168
 
-[sub_resource type="GDScript" id="GDScript_ks0yo"]
-script/source = "extends CollisionShape2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [node name="World" type="Node2D"]
 
 [node name="MapGreen" type="TileMap" parent="."]
@@ -509,7 +495,7 @@ position = Vector2(2951, 2628)
 experience = 400
 
 [node name="GreenPortal" type="AnimatedSprite2D" parent="."]
-position = Vector2(-3932, -3931)
+position = Vector2(-572, -480)
 rotation = -2.04029
 scale = Vector2(0.388194, 0.419262)
 sprite_frames = SubResource("SpriteFrames_hs6jn")
@@ -523,7 +509,6 @@ script = ExtResource("13_g5h1p")
 [node name="PortalArea" type="CollisionShape2D" parent="GreenPortal/EnterPortal"]
 position = Vector2(-12.9154, -3.50656)
 shape = SubResource("CapsuleShape2D_f5wnn")
-script = SubResource("GDScript_ks0yo")
 
 [connection signal="body_entered" from="GreenPortal/EnterPortal" to="GreenPortal/EnterPortal" method="_on_body_entered"]
 [connection signal="body_exited" from="GreenPortal/EnterPortal" to="GreenPortal/EnterPortal" method="_on_body_exited"]

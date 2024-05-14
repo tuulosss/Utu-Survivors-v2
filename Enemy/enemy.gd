@@ -59,7 +59,6 @@ func death():
 		
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
-	print(damage, angle, knockback_amount)
 	if damage==0:
 		knockback = global_position.direction_to(player.global_position)* -1 * knockback_amount
 		move_and_slide()
@@ -76,4 +75,4 @@ func _on_area_2d_area_entered(area):
 	
 	if area.is_in_group("player"):
 		print("pylly")
-		
+	

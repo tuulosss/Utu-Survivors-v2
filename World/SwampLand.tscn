@@ -73,12 +73,12 @@ position = Vector2(5850, 2630)
 experience = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3.8147e-06)
+position = Vector2(-1, 22)
 scale = Vector2(0.748, 0.784)
 texture = ExtResource("5_tmfa7")
 
 [node name="YellowPortal" type="AnimatedSprite2D" parent="."]
-position = Vector2(3984, 4665)
+position = Vector2(1118, 1032)
 rotation = 0.752237
 scale = Vector2(0.252, 0.4)
 sprite_frames = SubResource("SpriteFrames_f2nxq")
