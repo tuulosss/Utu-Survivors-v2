@@ -1,12 +1,12 @@
 extends Area2D
 
 #hyökkäyksen statit
-var level = 1 
-var hp = 1
-var speed = 100
-var damage =3
-var knockback_amount = 90
-var attack_size = 1.0
+@export var level = 1 
+@export var hp = 1
+@export var speed = 90
+@export var damage = 4
+@export var knockback_amount = 90
+@export var attack_size = 1.0
 
 var target =Vector2.ZERO
 var angle = Vector2.ZERO
@@ -22,8 +22,8 @@ func _ready():
 	#angle = global_position.direction_to(target)
 	match level:
 		1: 
-			hp += 0
-			speed += 0
+			hp += 1
+			speed *= 1.25
 			damage += 0
 			knockback_amount += 10
 			attack_size = 1.0 * (1 + player.spell_size)
@@ -36,7 +36,7 @@ func _ready():
 		3: 
 			hp +=1
 			speed += 0
-			damage *= 1.25
+			damage *= 1.20
 			knockback_amount += 0
 			attack_size = 1.0 * (1 + player.spell_size)
 		4: 

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var knockback_recovery = 3.5
 @export var experience = 1
 @export var damage = 1
+
 var knockback = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -15,6 +16,7 @@ var knockback = Vector2.ZERO
 @onready var hitBox = $HitBox
 @onready var sprite = $Sprite2D
 
+
 var death_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
 var food = preload("res://Objects/food.tscn")
@@ -22,6 +24,7 @@ var food = preload("res://Objects/food.tscn")
 signal remove_from_array(object)
 
 func _ready():
+	#$CollisionShape2D.disabled = true
 	hitBox.damage = damage
 	
 	
@@ -56,9 +59,21 @@ func death():
 		
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
+	print(damage, angle, knockback_amount)
+	if damage==0:
+		knockback = global_position.direction_to(player.global_position)* -1 * knockback_amount
+		move_and_slide()
+	else:
+		knockback = angle*knockback_amount
 	hp-=damage
-	knockback = angle * knockback_amount
 	if hp <= 0:
 		death()
 	else:
 		snd_hit.play()
+
+
+func _on_area_2d_area_entered(area):
+	
+	if area.is_in_group("player"):
+		print("pylly")
+		

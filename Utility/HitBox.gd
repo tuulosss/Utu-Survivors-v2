@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var damage = 1
+@export var knockback_amount = 1000
+@export var damage = 0
 @onready var collision = $CollisionShape2D
 @onready var disableTimer = $DisableHitBoxTimer
 

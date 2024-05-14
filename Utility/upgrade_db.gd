@@ -7,7 +7,7 @@ const UPGRADES = {
 	"HTTPattack1":{
 		"icon": WEAPON_PATH +"HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "Your HTTP attack gains +1 projectile",
+		"details": "Your HTTP attack gains 25% speed and +1 pierce",
 		"level": "Level 1",
 		"prerequisite": [],
 		"type": "weapon"
@@ -23,7 +23,7 @@ const UPGRADES = {
 	"HTTPattack3": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "HTTP attacks now pass through another enemy and do + 25% damage",
+		"details": "HTTP attacks gain +1 pierce and do + 20% damage",
 		"level": "Level: 3",
 		"prerequisite": ["HTTPattack2"],
 		"type": "weapon"
@@ -47,7 +47,7 @@ const UPGRADES = {
 	"NÄPPIS2": {
 		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
-		"details": "The NÄPPIS will now attack an additional enemy per attack",
+		"details": "The NÄPPIS will now attack an additional enemy per attack and deals +2 dmg ",
 		"level": "Level: 2",
 		"prerequisite": ["NÄPPIS1"],
 		"type": "weapon"
@@ -55,7 +55,7 @@ const UPGRADES = {
 	"NÄPPIS3": {
 		"icon": WEAPON_PATH + "näppis.png",
 		"displayname": "NÄPPIS",
-		"details": "The NÄPPIS will attack another additional enemy per attack",
+		"details": "The NÄPPIS will attack another additional enemy per attack and deals +2 dmg",
 		"level": "Level: 3",
 		"prerequisite": ["NÄPPIS2"],
 		"type": "weapon"
@@ -103,7 +103,7 @@ const UPGRADES = {
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By 2 point",
+		"details": "Reduces Damage By 2 points",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
@@ -111,7 +111,7 @@ const UPGRADES = {
 	"armor2": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 2 point",
+		"details": "Reduces Damage By an additional 2 points",
 		"level": "Level: 2",
 		"prerequisite": ["armor1"],
 		"type": "upgrade"
@@ -119,7 +119,7 @@ const UPGRADES = {
 	"armor3": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 2 point",
+		"details": "Reduces Damage By an additional 2 points",
 		"level": "Level: 3",
 		"prerequisite": ["armor2"],
 		"type": "upgrade"
@@ -127,7 +127,7 @@ const UPGRADES = {
 	"armor4": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 2 point",
+		"details": "Reduces Damage By an additional 2 points",
 		"level": "Level: 4",
 		"prerequisite": ["armor3"],
 		"type": "upgrade"
@@ -199,7 +199,7 @@ const UPGRADES = {
 	"scroll1": {
 		"icon": ICON_PATH + "scroll_old.png",
 		"displayname": "Scroll",
-		"details": "Decreases of the cooldown of spells by an additional 5% of their base time",
+		"details": "Decreases of the cooldown of spells by an additional 10% of their base time",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
@@ -207,7 +207,7 @@ const UPGRADES = {
 	"scroll2": {
 		"icon": ICON_PATH + "scroll_old.png",
 		"displayname": "Scroll",
-		"details": "Decreases of the cooldown of spells by an additional 5% of their base time",
+		"details": "Decreases of the cooldown of spells by an additional 10% of their base time",
 		"level": "Level: 2",
 		"prerequisite": ["scroll1"],
 		"type": "upgrade"
@@ -215,7 +215,7 @@ const UPGRADES = {
 	"scroll3": {
 		"icon": ICON_PATH + "scroll_old.png",
 		"displayname": "Scroll",
-		"details": "Decreases of the cooldown of spells by an additional 5% of their base time",
+		"details": "Decreases of the cooldown of spells by an additional 10% of their base time",
 		"level": "Level: 3",
 		"prerequisite": ["scroll2"],
 		"type": "upgrade"
@@ -223,7 +223,7 @@ const UPGRADES = {
 	"scroll4": {
 		"icon": ICON_PATH + "scroll_old.png",
 		"displayname": "Scroll",
-		"details": "Decreases of the cooldown of spells by an additional 5% of their base time",
+		"details": "Decreases of the cooldown of spells by an additional 10% of their base time",
 		"level": "Level: 4",
 		"prerequisite": ["scroll3"],
 		"type": "upgrade"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cx1108xmt0a76"]
 
 [ext_resource type="Script" path="res://Objects/food.gd" id="1_7qv8w"]
-[ext_resource type="Texture2D" uid="uid://cxp1i8itycw0d" path="res://Textures/Items/Upgrades/salmon_paste.png" id="2_tdlrv"]
+[ext_resource type="Texture2D" uid="uid://dwmdpfji0rlul" path="res://Textures/Items/Upgrades/heart.png" id="2_finhp"]
 [ext_resource type="AudioStream" uid="uid://bh8rjr4d70j36" path="res://Audio/SoundEffect/collectgem.mp3" id="3_m6l2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whhal"]
@@ -13,7 +13,9 @@ collision_mask = 8
 script = ExtResource("1_7qv8w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tdlrv")
+position = Vector2(13.3333, -13.3333)
+scale = Vector2(2, 2)
+texture = ExtResource("2_finhp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["loot"]]
 shape = SubResource("RectangleShape2D_whhal")

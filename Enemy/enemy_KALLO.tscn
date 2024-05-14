@@ -38,6 +38,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qsdof")
+disabled = true
 
 [node name="HitBox" parent="." instance=ExtResource("3_wruo8")]
 collision_layer = 2
