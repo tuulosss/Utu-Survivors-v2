@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx1108xmt0a76"]
+
+[ext_resource type="Script" path="res://Objects/food.gd" id="1_7qv8w"]
+[ext_resource type="Texture2D" uid="uid://cxp1i8itycw0d" path="res://Textures/Items/Upgrades/salmon_paste.png" id="2_tdlrv"]
+[ext_resource type="AudioStream" uid="uid://bh8rjr4d70j36" path="res://Audio/SoundEffect/collectgem.mp3" id="3_m6l2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whhal"]
+
+[node name="Food" type="Area2D" groups=["food", "loot"]]
+scale = Vector2(0.75, 0.75)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_7qv8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tdlrv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["loot"]]
+shape = SubResource("RectangleShape2D_whhal")
+
+[node name="snd_collected" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m6l2x")
+volume_db = -20.26
+pitch_scale = 0.24
+
+[connection signal="finished" from="snd_collected" to="." method="_on_snd_collected_finished"]

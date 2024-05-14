@@ -175,8 +175,16 @@ func _on_grab_area_area_entered(area):
 
 func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
-		var gem_exp = area.collect()
-		calculate_experience(gem_exp)
+		if area.is_in_group("exp"):
+			var gem_exp = area.collect()
+			calculate_experience(gem_exp)
+		elif area.is_in_group("food"):
+			var heal = area.collect()
+			hp += heal
+			hp = clamp(hp,0,maxhp)
+			healthBar.max_value =maxhp
+			healthBar.value = hp
+			
 	
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experiencecap()
@@ -272,6 +280,8 @@ func upgrade_character(upgrade):
 		"food":
 			hp += 20
 			hp = clamp(hp,0,maxhp)
+			healthBar.max_value =maxhp
+			healthBar.value = hp
 	attack()
 	
 	
