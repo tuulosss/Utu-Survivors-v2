@@ -5,7 +5,7 @@ var level = 1
 var hp = 1
 var speed = 100
 var damage =3
-var knockback_amount = 100
+var knockback_amount = 90
 var attack_size = 1.0
 
 var target =Vector2.ZERO
@@ -22,28 +22,28 @@ func _ready():
 	#angle = global_position.direction_to(target)
 	match level:
 		1: 
-			hp = +0
-			speed = 100
-			damage = 3
-			knockback_amount = 100
+			hp += 0
+			speed += 0
+			damage += 0
+			knockback_amount += 10
 			attack_size = 1.0 * (1 + player.spell_size)
 		2: 
-			hp = 1
-			speed = 100
-			damage = 3
-			knockback_amount = 100
+			hp += 0
+			speed += 0
+			damage += 0
+			knockback_amount += 0
 			attack_size = 1.0 * (1 + player.spell_size)
 		3: 
-			hp = 2
-			speed = 100
-			damage = 6
-			knockback_amount = 100
+			hp +=1
+			speed += 0
+			damage *= 1.25
+			knockback_amount += 0
 			attack_size = 1.0 * (1 + player.spell_size)
 		4: 
-			hp = 1
-			speed = 100
-			damage = 6
-			knockback_amount = 100
+			hp += 0
+			speed += 0
+			damage += 0
+			knockback_amount += 0
 			attack_size = 1.0 * (1 + player.spell_size)
 	
 	scale =Vector2(1.0,1.0)* attack_size

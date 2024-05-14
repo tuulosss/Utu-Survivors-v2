@@ -7,7 +7,7 @@ const UPGRADES = {
 	"HTTPattack1":{
 		"icon": WEAPON_PATH +"HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "Throw a HTTP fireball towards your cursor",
+		"details": "Your HTTP fireball gains +10 knockback",
 		"level": "Level 1",
 		"prerequisite": [],
 		"type": "weapon"
@@ -23,7 +23,7 @@ const UPGRADES = {
 	"HTTPattack3": {
 		"icon": WEAPON_PATH + "HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "HTTP attacks now pass through another enemy and do + 3 damage",
+		"details": "HTTP attacks now pass through another enemy and do + 25% damage",
 		"level": "Level: 3",
 		"prerequisite": ["HTTPattack2"],
 		"type": "weapon"
@@ -103,7 +103,7 @@ const UPGRADES = {
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By 1 point",
+		"details": "Reduces Damage By 2 point",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
@@ -111,7 +111,7 @@ const UPGRADES = {
 	"armor2": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 1 point",
+		"details": "Reduces Damage By an additional 2 point",
 		"level": "Level: 2",
 		"prerequisite": ["armor1"],
 		"type": "upgrade"
@@ -119,7 +119,7 @@ const UPGRADES = {
 	"armor3": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 1 point",
+		"details": "Reduces Damage By an additional 2 point",
 		"level": "Level: 3",
 		"prerequisite": ["armor2"],
 		"type": "upgrade"
@@ -127,7 +127,7 @@ const UPGRADES = {
 	"armor4": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
-		"details": "Reduces Damage By an additional 1 point",
+		"details": "Reduces Damage By an additional 2 point",
 		"level": "Level: 4",
 		"prerequisite": ["armor3"],
 		"type": "upgrade"
@@ -135,7 +135,7 @@ const UPGRADES = {
 	"speed1": {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Speed",
-		"details": "Movement Speed Increased by 50% of base speed",
+		"details": "Movement Speed Increased by 25% of base speed",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
@@ -143,7 +143,7 @@ const UPGRADES = {
 	"speed2": {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Speed",
-		"details": "Movement Speed Increased by an additional 50% of base speed",
+		"details": "Movement Speed Increased by an additional 25% of base speed",
 		"level": "Level: 2",
 		"prerequisite": ["speed1"],
 		"type": "upgrade"
@@ -151,7 +151,7 @@ const UPGRADES = {
 	"speed3": {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Speed",
-		"details": "Movement Speed Increased by an additional 50% of base speed",
+		"details": "Movement Speed Increased by an additional 25% of base speed",
 		"level": "Level: 3",
 		"prerequisite": ["speed2"],
 		"type": "upgrade"
@@ -159,7 +159,7 @@ const UPGRADES = {
 	"speed4": {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Speed",
-		"details": "Movement Speed Increased an additional 50% of base speed",
+		"details": "Movement Speed Increased an additional 25% of base speed",
 		"level": "Level: 4",
 		"prerequisite": ["speed3"],
 		"type": "upgrade"
@@ -167,7 +167,7 @@ const UPGRADES = {
 	"tome1": {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Tome",
-		"details": "Increases the size of spells an additional 10% of their base size",
+		"details": "Increases the size of spells an additional 15% of their base size",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "upgrade"
@@ -175,7 +175,7 @@ const UPGRADES = {
 	"tome2": {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Tome",
-		"details": "Increases the size of spells an additional 10% of their base size",
+		"details": "Increases the size of spells an additional 15% of their base size",
 		"level": "Level: 2",
 		"prerequisite": ["tome1"],
 		"type": "upgrade"
@@ -183,7 +183,7 @@ const UPGRADES = {
 	"tome3": {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Tome",
-		"details": "Increases the size of spells an additional 10% of their base size",
+		"details": "Increases the size of spells an additional 15% of their base size",
 		"level": "Level: 3",
 		"prerequisite": ["tome2"],
 		"type": "upgrade"
@@ -191,7 +191,7 @@ const UPGRADES = {
 	"tome4": {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Tome",
-		"details": "Increases the size of spells an additional 10% of their base size",
+		"details": "Increases the size of spells an additional 15% of their base size",
 		"level": "Level: 4",
 		"prerequisite": ["tome3"],
 		"type": "upgrade"

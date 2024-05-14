@@ -24,7 +24,6 @@ func _on_area_entered(area):
 								area.connect("remove_from_array",Callable(self,"remove_from_list"))
 					else:
 						return
-						
 				2: #DisableHitBox
 					if area.has_method("tempdisable"):
 						area.tempdisable()

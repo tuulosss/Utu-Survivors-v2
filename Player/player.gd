@@ -68,6 +68,7 @@ func _physics_process(_delta):
 	movement()
 
 func movement():
+	print(self.global_position)
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
 	var mov = Vector2(x_mov, y_mov)
@@ -164,7 +165,6 @@ func _on_hurt_box_hurt(damage, _angle, _knockback):
 	hp-= clamp(damage-armor, 1.0, 999)
 	healthBar.max_value =maxhp
 	healthBar.value = hp
-	print("player hp", hp)
 	if hp <= 0:
 		get_tree().change_scene_to_file("res://Title/GameOver.tscn")
 
@@ -204,12 +204,12 @@ func calculate_experience(gem_exp):
 
 func calculate_experiencecap():
 	var exp_cap = experience_level
-	if experience_level < 20:
+	if experience_level < 10:
 		exp_cap = experience_level*5
-	elif experience_level <40:
-		exp_cap+95*(experience_level-19)*8
+	elif experience_level <20:
+		exp_cap = 100 + experience_level*10
 	else:
-		exp_cap = 255 + (experience_level-39)*12
+		exp_cap = 255 + experience_level*12
 	return exp_cap
 
 func set_expbar(set_value = 1, set_max_value = 100):
@@ -268,11 +268,11 @@ func upgrade_character(upgrade):
 		"NÄPPIS4":
 			Näppis_level = 4
 		"armor1","armor2","armor3","armor4":
-			armor += 1
+			armor += 2
 		"speed1","speed2","speed3","speed4":
 			movement_speed += 20.0
 		"tome1","tome2","tome3","tome4":
-			spell_size += 0.10
+			spell_size += 0.15
 		"scroll1","scroll2","scroll3","scroll4":
 			spell_cooldown += 0.05
 		"ring1","ring2":
