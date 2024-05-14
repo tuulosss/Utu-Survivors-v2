@@ -7,7 +7,7 @@ const UPGRADES = {
 	"HTTPattack1":{
 		"icon": WEAPON_PATH +"HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "Your HTTP fireball gains +10 knockback",
+		"details": "Your HTTP attack gains +1 projectile",
 		"level": "Level 1",
 		"prerequisite": [],
 		"type": "weapon"
@@ -15,7 +15,7 @@ const UPGRADES = {
 	"HTTPattack2":{
 		"icon": WEAPON_PATH +"HTTPattack.png",
 		"displayname": "HTTP attack",
-		"details": "An additional HTTP fireball is fired",
+		"details": "Your HTTP attack gains +1 projectile",
 		"level": "Level 2",
 		"prerequisite": ["HTTPattack1"],
 		"type": "weapon"

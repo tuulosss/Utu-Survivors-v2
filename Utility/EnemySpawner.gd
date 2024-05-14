@@ -48,4 +48,24 @@ func get_random_position():
 			
 	var x_spawn = randf_range(spawn_pos1.x, spawn_pos2.x)
 	var y_spawn = randf_range(spawn_pos1.y, spawn_pos1.y)
+	
+	
+	#Estetään vihun spawnaaminen alueen reunojen ulkopuolelle
+	if x_spawn < -3300:
+		x_spawn += 1100
+	elif x_spawn < -3000:
+		x_spawn += 800
+	if x_spawn > 2900:
+		x_spawn -= 1100
+	elif x_spawn > 2600:
+		x_spawn -= 800
+	if y_spawn < -2700:
+		y_spawn += 1100
+	elif y_spawn < -2400:
+		y_spawn += 800
+	if y_spawn > 3900:
+		y_spawn -= 1100
+	elif y_spawn > 3600:
+		y_spawn -= 800
+	
 	return Vector2(x_spawn, y_spawn)

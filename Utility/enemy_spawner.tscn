@@ -11,7 +11,7 @@ script = ExtResource("3_u3i6a")
 time_start = 0
 time_end = 9999
 enemy = ExtResource("2_t2bc5")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_fkcma"]
@@ -59,8 +59,8 @@ script = ExtResource("3_u3i6a")
 time_start = 210
 time_end = 99999
 enemy = ExtResource("4_o872g")
-enemy_num = 0
-enemy_spawn_delay = 0
+enemy_num = 1
+enemy_spawn_delay = 300
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_r6ij2")
