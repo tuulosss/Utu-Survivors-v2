@@ -1,12 +1,12 @@
 #Matrix hyökkäyksen koodi
 extends Area2D
 
-var level = 1 
-var hp = 9999
-var speed = 100
-var damage =3
-var knockback_amount = 100
-var attack_size = 1.0
+@export var level = 1 
+@export var hp = 9999
+@export var speed = 100
+@export var damage = 5
+@export var knockback_amount = 100
+@export var attack_size = 1.0
 
 #last_movement
 var last_movement = Vector2.ZERO
@@ -22,28 +22,28 @@ func _ready():
 	$snd_attack.play()
 	match level:
 		1: 
-			hp = 9999
-			speed = 100
-			damage = 3
-			knockback_amount = 100
+			hp +=0
+			speed +=0
+			damage +=0
+			knockback_amount +=0
 			attack_size = 1.0 * (1+player.spell_size)
 		2: 
-			hp = 9999
-			speed = 100
-			damage = 3
-			knockback_amount = 100
+			hp +=0
+			speed +=0
+			damage +=0
+			knockback_amount +=0
 			attack_size = 1.0 * (1+player.spell_size)
 		3: 
-			hp = 9999
-			speed = 100
-			damage = 3
-			knockback_amount = 100
+			hp +=0
+			speed +=0
+			damage +=0
+			knockback_amount +=0
 			attack_size = 1.0 * (1+player.spell_size)
 		4: 
-			hp = 9999
-			speed = 100
-			damage = 3
-			knockback_amount = 125
+			hp +=0 
+			speed +=0
+			damage +=0
+			knockback_amount += 25
 			attack_size = 1.0 * (1+player.spell_size)
 			
 	#last movement

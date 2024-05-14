@@ -19,10 +19,10 @@ radius = 21.0
 height = 82.0
 
 [node name="enemy_örkki" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_7y4bu")
-movement_speed = 70.0
 hp = 400
 knockback_recovery = 100.0
 experience = 25

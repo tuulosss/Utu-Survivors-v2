@@ -1,7 +1,7 @@
 extends Area2D
 
 
-@export var experience = 1
+@export var experience = 2
 
 var spr_green = preload("res://Textures/Items/Gems/Gem_red.png")
 var spr_blue = preload("res://Textures/Items/Gems/Gem_blue.png")

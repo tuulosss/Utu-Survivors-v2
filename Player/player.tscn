@@ -77,8 +77,9 @@ position = Vector2(-0.050615, -0.0442235)
 shape = SubResource("CircleShape2D_cy7ba")
 
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
+z_index = 1
 stream = ExtResource("4_e005n")
-volume_db = -26.553
+volume_db = -35.0
 
 [node name="HurtBox" parent="." instance=ExtResource("3_kpwyk")]
 collision_layer = 2

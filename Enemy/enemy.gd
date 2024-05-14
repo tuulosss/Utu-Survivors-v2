@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var movement_speed=40.0
+@export var movement_speed=100
 @export var hp=20
 @export var knockback_recovery = 3.5
 @export var experience = 1
@@ -17,6 +17,8 @@ var knockback = Vector2.ZERO
 
 var death_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
+var food = preload("res://Objects/food.tscn")
+
 signal remove_from_array(object)
 
 func _ready():
@@ -45,7 +47,13 @@ func death():
 		new_gem.global_position = global_position
 		new_gem.experience = experience 
 		loot_base.call_deferred("add_child", new_gem)
+		var probability : int = 25 # 1/10 chance
+		if (randi() % probability) == (probability - 1):
+			var new_food = food.instantiate()
+			new_food.global_position = global_position
+			loot_base.call_deferred("add_child", new_food)
 		queue_free()
+		
 
 func _on_hurt_box_hurt(damage, angle, knockback_amount):
 	hp-=damage

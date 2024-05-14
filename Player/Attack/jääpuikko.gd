@@ -22,7 +22,7 @@ func _ready():
 	#angle = global_position.direction_to(target)
 	match level:
 		1: 
-			hp = 1
+			hp = +0
 			speed = 100
 			damage = 3
 			knockback_amount = 100

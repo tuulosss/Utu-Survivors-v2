@@ -21,6 +21,5 @@ func collect():
 	sprite.visible = false
 	return heal
 
-
 func _on_snd_collected_finished():
 	queue_free()

@@ -7,7 +7,7 @@ var damage = 10
 var knockback_amount = 100
 var paths = 1
 var attack_size = 1.0
-var attack_speed = 4.0
+var attack_speed = 5.0
 
 var target = Vector2.ZERO
 var target_array =[]
