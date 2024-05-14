@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlmkj246hq6lm"]
 
-[ext_resource type="Script" path="res://Player/Attack/jääpuikko.gd" id="1_2d1r7"]
+[ext_resource type="Script" path="res://Player/Attack/jaapuikko.gd" id="1_yodw7"]
 [ext_resource type="Texture2D" uid="uid://bc13vg27lwhoo" path="res://Player/Attack/HTTPatta.png" id="2_vls8p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ap4w1"]
@@ -12,7 +12,7 @@ light_mask = 4
 visibility_layer = 4
 collision_layer = 4
 collision_mask = 4
-script = ExtResource("1_2d1r7")
+script = ExtResource("1_yodw7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.04884, 2.29298)
