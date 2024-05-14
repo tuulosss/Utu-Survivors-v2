@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjv1q7mlg0hj1"]
+[gd_scene load_steps=19 format=3 uid="uid://cjv1q7mlg0hj1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_1na3e"]
 [ext_resource type="Texture2D" uid="uid://ds30h2susimku" path="res://Textures/Player/character2.png" id="1_gv42m"]
 [ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="3_kpwyk"]
 [ext_resource type="AudioStream" uid="uid://cadwdacnc7d8d" path="res://Audio/Music/ingame.mp3" id="4_e005n"]
+[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="5_2tmvn"]
 [ext_resource type="Texture2D" uid="uid://f3tuwsea7p6r" path="res://Textures/GUI/exp_background.png" id="5_jo0di"]
 [ext_resource type="Texture2D" uid="uid://o1yr3h88v0so" path="res://Textures/GUI/exp_progress.png" id="6_e7aci"]
 [ext_resource type="FontFile" uid="uid://dru6y4rjlg0du" path="res://Font/tenderness.otf" id="7_644fq"]
@@ -17,24 +18,34 @@ radius = 0.118102
 height = 0.707576
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cy7ba"]
-radius = 1.81745
+radius = 2.60751
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qs35m"]
-radius = 0.312126
-height = 0.950806
+radius = 0.30369
+height = 0.88447
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nr70a"]
-radius = 1.29354
-height = 2.98509
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5u0t"]
+radius = 1.49515
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fv4jr"]
 radius = 0.40492
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dghfu"]
+radius = 0.050615
+height = 0.159205
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(118.542, 90.4496)
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_1na3e")
+movement_speed = 110
+knockback_amount = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = -1
 shape = SubResource("CapsuleShape2D_dqhub")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -67,6 +78,7 @@ wait_time = 0.2
 unique_name_in_owner = true
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
+visible = false
 light_mask = 4
 visibility_layer = 4
 position = Vector2(0.050615, 0.0442235)
@@ -79,7 +91,7 @@ shape = SubResource("CircleShape2D_cy7ba")
 [node name="GameMusic" type="AudioStreamPlayer2D" parent="."]
 z_index = 1
 stream = ExtResource("4_e005n")
-volume_db = -35.0
+volume_db = -30.0
 
 [node name="HurtBox" parent="." instance=ExtResource("3_kpwyk")]
 collision_layer = 2
@@ -95,7 +107,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="GrabArea" type="CollisionShape2D" parent="GrabArea"]
-shape = SubResource("CapsuleShape2D_nr70a")
+shape = SubResource("CircleShape2D_k5u0t")
 
 [node name="CollectArea" type="Area2D" parent="."]
 visible = false
@@ -104,6 +116,16 @@ collision_mask = 8
 
 [node name="CollectArea" type="CollisionShape2D" parent="CollectArea"]
 shape = SubResource("CircleShape2D_fv4jr")
+
+[node name="HitBox" parent="." instance=ExtResource("5_2tmvn")]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 4
+knockback_amount = 200
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+scale = Vector2(5, 5)
+shape = SubResource("CapsuleShape2D_dghfu")
 
 [node name="GUILayer" type="CanvasLayer" parent="."]
 
@@ -223,3 +245,4 @@ text = "33"
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 
 [editable path="HurtBox"]
+[editable path="HitBox"]

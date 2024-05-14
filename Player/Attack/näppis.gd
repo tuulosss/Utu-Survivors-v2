@@ -3,7 +3,7 @@ extends Area2D
 var level =1 
 var hp = 999
 var speed = 300
-var damage = 10
+var damage = 3
 var knockback_amount = 100
 var paths = 1
 var attack_size = 1.5
@@ -36,7 +36,7 @@ func update_Näppis():
 		1:
 			hp += 0
 			speed += 0
-			damage += 0
+			damage += 2
 			knockback_amount += 0
 			paths += 0
 			attack_size = 1.0 * (1 + player.spell_size)
@@ -44,7 +44,7 @@ func update_Näppis():
 		2:
 			hp += 0
 			speed += 0
-			damage += 0
+			damage += 2
 			knockback_amount += 0
 			paths += 1
 			attack_size = 1.0 * (1 + player.spell_size)

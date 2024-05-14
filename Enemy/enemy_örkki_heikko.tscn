@@ -8,15 +8,15 @@
 [ext_resource type="AudioStream" uid="uid://da8f5ldkfbr48" path="res://Audio/SoundEffect/enemy_death2.ogg" id="5_wevx7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
-radius = 4.0
-height = 18.0
+radius = 8.0
+height = 50.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gxrj"]
 radius = 14.0
 height = 44.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7ljs"]
-radius = 9.0
+radius = 7.0
 height = 40.0
 
 [node name="enemy_örkki" type="CharacterBody2D"]
@@ -25,7 +25,7 @@ collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_r4qoc")
 movement_speed = 90
-hp = 9
+hp = 8
 experience = 2
 damage = 4
 
@@ -34,7 +34,8 @@ position = Vector2(5, -3)
 scale = Vector2(0.0772856, 0.0756582)
 texture = ExtResource("2_7mix2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="colllisionbox" type="CollisionShape2D" parent="."]
+position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_qsdof")
 
 [node name="HitBox" parent="." instance=ExtResource("2_beqm8")]

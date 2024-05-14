@@ -10,7 +10,10 @@ var experience = 0
 var experience_level = 1
 var collected_experience = 0
 var last_movement = Vector2.UP
-
+var knockback = Vector2.ZERO
+var target =Vector2.ZERO
+var angle = Vector2.ZERO
+@export var knockback_amount = 100
 #Hyökkäykset
 var HTTP =preload("res:///Player/Attack/jääpuikko.tscn")
 var Matrix =preload("res://Player/Attack/Matrix.tscn")
@@ -30,6 +33,7 @@ var Näppis = preload("res://Player/Attack/näppis.tscn")
 @onready var sndLevelUp = get_node("%snd_levelup")
 @onready var itemOptions = preload("res://Utility/item_option.tscn")
 @onready var healthBar = get_node("%HealthBar")
+
 #UPGRADES
 var collected_upgrades = []
 var upgrade_options = []
@@ -67,6 +71,8 @@ func _ready():
 func _physics_process(_delta):
 	movement()
 
+
+
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var y_mov = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -78,7 +84,7 @@ func movement():
 		
 	if mov != Vector2.ZERO:
 		last_movement = mov
-		
+	knockback = knockback.move_toward(Vector2.ZERO,3)
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
@@ -160,8 +166,9 @@ func _on_enemy_detection_area_body_exited(body):
 	if  enemy_close.has(body):
 		enemy_close.erase(body)
 
-func _on_hurt_box_hurt(damage, _angle, _knockback):
+func _on_hurt_box_hurt(damage, _angle, _knockback_amount):
 	hp-= clamp(damage-armor, 1.0, 999)
+	#knockback = angle * knockback_amount
 	healthBar.max_value =maxhp
 	healthBar.value = hp
 	if hp <= 0:
@@ -236,7 +243,7 @@ func upgrade_character(upgrade):
 	match upgrade:
 		"HTTPattack1":
 			HTTP_level = 1
-			HTTP_baseammo += 1
+			HTTP_baseammo += 0
 		"HTTPattack2":
 			HTTP_level = 2
 			HTTP_baseammo += 1
@@ -273,7 +280,7 @@ func upgrade_character(upgrade):
 		"tome1","tome2","tome3","tome4":
 			spell_size += 0.15
 		"scroll1","scroll2","scroll3","scroll4":
-			spell_cooldown += 0.05
+			spell_cooldown += 0.10
 		"ring1","ring2":
 			additional_attacks += 1
 		"food":

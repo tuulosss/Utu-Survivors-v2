@@ -52,6 +52,7 @@ offset_bottom = 96.0
 theme_override_fonts/font = ExtResource("2_ufg02")
 theme_override_font_sizes/font_size = 14
 text = "Description:"
+autowrap_mode = 3
 
 [node name="lbl_level" type="Label" parent="."]
 layout_mode = 0
