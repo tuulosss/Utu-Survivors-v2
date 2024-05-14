@@ -120,7 +120,6 @@ func _on_attack_timer_timeout():
 
 func _on_change_direction_timeout():
 	var distance = global_position.distance_to(player.global_position)
-	print(distance)
 	if distance > 300:
 		var tween = create_tween()
 		tween.tween_property(self, "position", player.global_position,1.5).set_trans(Tween.TRANS_QUINT).set_ease((Tween.EASE_OUT))
