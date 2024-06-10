@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bytq12r516xlj"]
+[gd_scene load_steps=18 format=3 uid="uid://bytq12r516xlj"]
 
 [ext_resource type="Script" path="res://Utility/EnemySpawner.gd" id="1_r6ij2"]
 [ext_resource type="PackedScene" uid="uid://dj5elpk4ma3gc" path="res://Enemy/enemy_örkki_heikko.tscn" id="2_t2bc5"]
@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_wdu1n"]
 script = ExtResource("3_u3i6a")
 time_start = 0
-time_end = 30
+time_end = 600
 enemy = ExtResource("2_t2bc5")
 enemy_num = 2
 enemy_spawn_delay = 2
@@ -17,54 +17,94 @@ enemy_spawn_delay = 2
 [sub_resource type="Resource" id="Resource_fkcma"]
 script = ExtResource("3_u3i6a")
 time_start = 30
-time_end = 99999
-enemy = ExtResource("2_t2bc5")
-enemy_num = 3
-enemy_spawn_delay = 1
+time_end = 600
+enemy = ExtResource("5_on1u1")
+enemy_num = 2
+enemy_spawn_delay = 4
 
 [sub_resource type="Resource" id="Resource_r0ql3"]
 script = ExtResource("3_u3i6a")
-time_start = 60
-time_end = 99999
+time_start = 50
+time_end = 600
 enemy = ExtResource("4_o872g")
 enemy_num = 1
 enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_lmo2f"]
 script = ExtResource("3_u3i6a")
-time_start = 180
-time_end = 99999
+time_start = 100
+time_end = 600
 enemy = ExtResource("5_on1u1")
-enemy_num = 1
-enemy_spawn_delay = 1
+enemy_num = 3
+enemy_spawn_delay = 2
 
 [sub_resource type="Resource" id="Resource_owaeo"]
 script = ExtResource("3_u3i6a")
-time_start = 210
-time_end = 99999
+time_start = 150
+time_end = 600
 enemy = ExtResource("4_o872g")
 enemy_num = 3
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_x5aa7"]
+script = ExtResource("3_u3i6a")
+time_start = 210
+time_end = 213
+enemy = ExtResource("4_o872g")
+enemy_num = 5
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_xcja7"]
 script = ExtResource("3_u3i6a")
 time_start = 210
-time_end = 99999
+time_end = 600
 enemy = ExtResource("5_on1u1")
 enemy_num = 4
-enemy_spawn_delay = 1
+enemy_spawn_delay = 3
 
 [sub_resource type="Resource" id="Resource_n3jmw"]
 script = ExtResource("3_u3i6a")
-time_start = 210
-time_end = 99999
+time_start = 280
+time_end = 283
+enemy = ExtResource("4_o872g")
+enemy_num = 10
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_r4vl7"]
+script = ExtResource("3_u3i6a")
+time_start = 350
+time_end = 600
+enemy = ExtResource("5_on1u1")
+enemy_num = 2
+enemy_spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_jctkk"]
+script = ExtResource("3_u3i6a")
+time_start = 420
+time_end = 600
 enemy = ExtResource("4_o872g")
 enemy_num = 1
-enemy_spawn_delay = 300
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_2lx06"]
+script = ExtResource("3_u3i6a")
+time_start = 450
+time_end = 600
+enemy = ExtResource("5_on1u1")
+enemy_num = 1
+enemy_spawn_delay = 3
+
+[sub_resource type="Resource" id="Resource_n4iiy"]
+script = ExtResource("3_u3i6a")
+time_start = 560
+time_end = 563
+enemy = ExtResource("4_o872g")
+enemy_num = 15
+enemy_spawn_delay = 1
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_r6ij2")
-spawns = Array[ExtResource("3_u3i6a")]([SubResource("Resource_wdu1n"), SubResource("Resource_fkcma"), SubResource("Resource_r0ql3"), SubResource("Resource_lmo2f"), SubResource("Resource_owaeo"), SubResource("Resource_xcja7"), SubResource("Resource_n3jmw")])
+spawns = Array[ExtResource("3_u3i6a")]([SubResource("Resource_wdu1n"), SubResource("Resource_fkcma"), SubResource("Resource_r0ql3"), SubResource("Resource_lmo2f"), SubResource("Resource_owaeo"), SubResource("Resource_x5aa7"), SubResource("Resource_xcja7"), SubResource("Resource_n3jmw"), SubResource("Resource_r4vl7"), SubResource("Resource_jctkk"), SubResource("Resource_2lx06"), SubResource("Resource_n4iiy")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

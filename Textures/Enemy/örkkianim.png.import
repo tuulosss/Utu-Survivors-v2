@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lei8aj71ss48"
-path="res://.godot/imported/örkki_heikko.png-33cb1555e1c744a569695e9964ff145d.ctex"
+uid="uid://bs254y0f0mov6"
+path="res://.godot/imported/örkkianim.png-a38e86af5cc108274df47f89bf78820a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Enemy/örkki_heikko.png"
-dest_files=["res://.godot/imported/örkki_heikko.png-33cb1555e1c744a569695e9964ff145d.ctex"]
+source_file="res://Textures/Enemy/örkkianim.png"
+dest_files=["res://.godot/imported/örkkianim.png-a38e86af5cc108274df47f89bf78820a.ctex"]
 
 [params]
 

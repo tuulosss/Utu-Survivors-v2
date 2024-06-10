@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var GameMusic = $GameMusic
 #pelaajan stats ja movement
 @export var movement_speed = 100
-var maxhp=100
+var maxhp=100000
 var hp=maxhp
 var experience = 0
 var experience_level = 1

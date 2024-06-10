@@ -15,7 +15,7 @@ var knockback = Vector2.ZERO
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
 @onready var hitBox = $HitBox
 @onready var sprite = $Sprite2D
-
+#@onready var anim = $AnimationPlayer
 
 var death_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
@@ -24,6 +24,7 @@ var food = preload("res://Objects/food.tscn")
 signal remove_from_array(object)
 
 func _ready():
+	#anim.play("walk")
 	#$CollisionShape2D.disabled = true
 	hitBox.damage = damage
 	

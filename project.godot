@@ -23,6 +23,12 @@ UpgradeDb="*res://Utility/upgrade_db.tscn"
 
 window/stretch/mode="viewport"
 
+[importer_defaults]
+
+animation_library={
+"animation/fps": 120.0
+}
+
 [input]
 
 up={

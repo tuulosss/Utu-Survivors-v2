@@ -1,13 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://p8k611ml7yln"]
+[gd_scene load_steps=13 format=3 uid="uid://byu1vsf0d18nw"]
 
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_ut1ou"]
-[ext_resource type="Texture2D" uid="uid://bs254y0f0mov6" path="res://Textures/Enemy/örkkianim.png" id="2_6378k"]
-[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="3_c2qmn"]
-[ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="4_i00qu"]
-[ext_resource type="AudioStream" uid="uid://c4exw1ele56gt" path="res://Audio/SoundEffect/enemy_hit2.ogg" id="5_xwoq1"]
-[ext_resource type="AudioStream" uid="uid://da8f5ldkfbr48" path="res://Audio/SoundEffect/enemy_death2.ogg" id="6_xi8kc"]
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_xs4mg"]
+[ext_resource type="Texture2D" uid="uid://b5jgstniaj1y3" path="res://Textures/Enemy/swampmonsteranim.png" id="2_wp7kj"]
+[ext_resource type="PackedScene" uid="uid://cu8wbalbsj72m" path="res://Utility/hit_box.tscn" id="3_4jngs"]
+[ext_resource type="PackedScene" uid="uid://ke1dg3omafgd" path="res://Utility/hurt_box.tscn" id="4_eqioc"]
+[ext_resource type="AudioStream" uid="uid://c4exw1ele56gt" path="res://Audio/SoundEffect/enemy_hit2.ogg" id="5_vnf2r"]
+[ext_resource type="AudioStream" uid="uid://da8f5ldkfbr48" path="res://Audio/SoundEffect/enemy_death2.ogg" id="6_fmwx6"]
 
-[sub_resource type="Animation" id="Animation_lehob"]
+[sub_resource type="Animation" id="Animation_ukoep"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_oqr65"]
+[sub_resource type="Animation" id="Animation_7cq5n"]
 resource_name = "walk"
 length = 0.6
 loop_mode = 1
@@ -33,81 +33,78 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [0, 1, 1, 1]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej8x5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yasvb"]
 _data = {
-"RESET": SubResource("Animation_lehob"),
-"walk": SubResource("Animation_oqr65")
+"RESET": SubResource("Animation_ukoep"),
+"walk": SubResource("Animation_7cq5n")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qsdof"]
-radius = 4.0
-height = 28.0
+radius = 6.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gxrj"]
-radius = 24.0
-height = 48.0
+radius = 52.0
+height = 144.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b7ljs"]
-radius = 22.0
-height = 52.0
+radius = 70.0
+height = 152.0
 
 [node name="enemy_örkki" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 5
 collision_mask = 5
-script = ExtResource("1_ut1ou")
-hp = 25
-knockback_recovery = 5.0
-experience = 10
-damage = 20
+script = ExtResource("1_xs4mg")
+hp = 400
+knockback_recovery = 100.0
+experience = 25
+damage = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.999996, -3)
-scale = Vector2(0.178894, 0.164337)
-texture = ExtResource("2_6378k")
+position = Vector2(17, 1)
+scale = Vector2(0.306025, 0.21076)
+texture = ExtResource("2_wp7kj")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ej8x5")
+"": SubResource("AnimationLibrary_yasvb")
 }
 
-[node name="WalkTimer" type="Timer" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_qsdof")
 
-[node name="HitBox" parent="." instance=ExtResource("3_c2qmn")]
+[node name="HitBox" parent="." instance=ExtResource("3_4jngs")]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-position = Vector2(1, -2)
+position = Vector2(11, 4)
 shape = SubResource("CapsuleShape2D_7gxrj")
 
-[node name="HurtBox" parent="." instance=ExtResource("4_i00qu")]
+[node name="HurtBox" parent="." instance=ExtResource("4_eqioc")]
 collision_layer = 4
 collision_mask = 4
 HurtBoxType = 1
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, -3)
+position = Vector2(7, 6)
 shape = SubResource("CapsuleShape2D_b7ljs")
 
 [node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_xwoq1")
+stream = ExtResource("5_vnf2r")
 volume_db = -20.0
 pitch_scale = 2.0
 
 [node name="snd_death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_xi8kc")
+stream = ExtResource("6_fmwx6")
 volume_db = -10.0
 pitch_scale = 1.35
 
